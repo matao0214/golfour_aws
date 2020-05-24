@@ -18,7 +18,7 @@
     = f.password_field :password_cocfirmation, class: 'form-control'
   .form-group
     = f.label :golf_reki, 'ゴルフ歴'
-    = f.select :golf_reki, [['未経験', 1], ['1年', 2], ['2年', 3],['3年', 4],['4年', 5],['5年以上', 6]], {}, class: 'form-control'
+    = f.select :golf_reki, [['未経験'], ['1年'], ['2年'],['3年'],['4年'],['5年以上']], {}, class: 'form-control'
   .form-group
     = f.label :goal, '目標'
     = f.text_field :goal, class: 'form-control'
