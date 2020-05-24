@@ -1,2 +1,28 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+h1 ユーザーの詳細
+
+table.table.table-hover
+  tbody
+    tr
+      th = User.human_attribute_name(:id)
+      td = @user.id
+    tr
+      th = User.human_attribute_name(:nickname)
+      td = @user.nickname
+    tr
+      th = User.human_attribute_name(:email)
+      td = @user.email
+    tr
+      th = User.human_attribute_name(:golf_reki)
+      td = @user.golf_reki
+    tr
+      th = User.human_attribute_name(:goal)
+      td = @user.goal
+    tr
+      th = User.human_attribute_name(:created_at)
+      td = @user.created_at
+    tr
+      th = User.human_attribute_name(:updated_at)
+      td = @user.updated_at
+   
+= link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @user, method: :delete, data: { confirm: "ユーザー「」を削除します。よろしいですか？"}, class: 'btn btn-danger'
