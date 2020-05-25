@@ -1,0 +1,25 @@
+- if user.errors.present?
+  ul#error_explanation
+    - user.errors.full_messages.each do |message|
+      li= message
+
+= form_with model: user, local: true do |f|
+  .form-group
+    = f.label :nickname, '名前'
+    = f.text_field :nickname, class: 'form-control'
+  .form-group
+    = f.label :email, 'メールアドレス'
+    = f.text_field :email, class: 'form-control'
+  .form-group
+    = f.label :password, 'パスワード'
+    = f.password_field :password, class: 'form-control'
+  .form-gorup
+    = f.label :password_cocfirmation, 'パスワード(確認)'
+    = f.password_field :password_cocfirmation, class: 'form-control'
+  .form-group
+    = f.label :golf_reki, 'ゴルフ歴'
+    = f.select :golf_reki, [['未経験'], ['1年'], ['2年'],['3年'],['4年'],['5年以上']], {}, class: 'form-control'
+  .form-group
+    = f.label :goal, '目標'
+    = f.text_field :goal, class: 'form-control'
+  = f.submit '登録する', class: 'btn btn-primary'
