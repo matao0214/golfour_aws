@@ -30,12 +30,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @user = User.find(params[:id])
-  #   @user.destroy
-  #   redirect_to user_url(@user), notice: "ユーザー「#{@user.nickname}」を削除しました。"
-  # end
-
   private
     
   def user_params
