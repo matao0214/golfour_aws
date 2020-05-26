@@ -1,2 +1,27 @@
-h1 TrainingPosts#show
-p Find me in app/views/training_posts/show.html.slim
+h1 投稿の詳細
+
+.nav.justify-content-end
+  =link_to '投稿一覧', root_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= User.human_attribute_name(:nickname)
+      td= 
+    tr
+      th= TrainingPost.human_attribute_name(:training_place)
+      td= @training_post.training_place
+    tr
+      th= TrainingPost.human_attribute_name(:training_advance)
+      td= @training_post.training_advance
+    tr
+      th= TrainingPost.human_attribute_name(:training_task)
+      td= @training_post.training_task
+    tr
+      th= TrainingPost.human_attribute_name(:training_impression)
+      td= @training_post.training_impression
+    tr
+      th= TrainingPost.human_attribute_name(:created_at)
+      td= @training_post.created_at
+    tr
+      th= TrainingPost.human_attribute_name(:updated_at)
+      td= @training_post.updated_at

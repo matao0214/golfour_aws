@@ -13,7 +13,7 @@ table.table.table-hover
     - @training_posts.each do |post|
       tr
         td= 
-        td= post.training_impression
+        td= link_to post.training_impression, post
         td= post.created_at
 
     / 投稿ごとにユーザー名を表示したいができない

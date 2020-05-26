@@ -5,6 +5,7 @@ class TrainingPostsController < ApplicationController
   end
 
   def show
+    @training_post = TrainingPost.find(params[:id])
   end
 
   def new
