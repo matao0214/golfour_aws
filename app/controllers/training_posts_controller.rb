@@ -1,5 +1,7 @@
 class TrainingPostsController < ApplicationController
   def index
+    @training_posts = TrainingPost.all
+    
   end
 
   def show
