@@ -25,3 +25,5 @@ table.table.table-hover
     tr
       th= TrainingPost.human_attribute_name(:updated_at)
       td= @training_post.updated_at
+
+= link_to '編集', edit_training_post_path, class: 'btn btn-primary mr-3'

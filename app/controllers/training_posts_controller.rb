@@ -19,8 +19,14 @@ class TrainingPostsController < ApplicationController
   end
 
   def edit
+    @training_post = TrainingPost.find(params[:id])
   end
 
+  def update
+    training_post = TrainingPost.find(params[:id])
+    training_post.update!(training_post_params)
+    redirect_to training_post_url, notice: "投稿を編集しました。"
+  end
 
 private
 
