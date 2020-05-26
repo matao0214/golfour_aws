@@ -6,6 +6,7 @@ class TrainingPostsController < ApplicationController
   end
 
   def new
+    @training_post = TrainingPost.new
   end
 
   def edit

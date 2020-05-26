@@ -1,2 +1,6 @@
-h1 TrainingPosts#new
-p Find me in app/views/training_posts/new.html.slim
+h1 新規投稿
+
+.nav.justify-content-end
+  =link_to '投稿一覧', training_posts_path, class: 'nav-link'
+
+= render partial: 'form', locals: { training_post: @training_post }
