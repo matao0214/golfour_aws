@@ -14,8 +14,12 @@ class TrainingPostsController < ApplicationController
 
   def create
     @training_post = current_user.training_posts.new(training_post_params)
-    @training_post.save!
-    redirect_to root_url, notice: "投稿しました。" 
+    
+    if @training_post.save
+      redirect_to root_url, notice: "投稿しました。" 
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,9 +27,12 @@ class TrainingPostsController < ApplicationController
   end
 
   def update
-    training_post = TrainingPost.find(params[:id])
-    training_post.update!(training_post_params)
-    redirect_to training_post_url, notice: "投稿を編集しました。"
+    @training_post = TrainingPost.find(params[:id])
+    if @training_post.update(training_post_params)
+      redirect_to training_post_url, notice: "投稿を編集しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy
