@@ -16,9 +16,9 @@ table.table.table-hover
       td = @user.goal
     tr
       th = User.human_attribute_name(:created_at)
-      td = @user.created_at
+      td = l @user.created_at, format: :long
     tr
       th = User.human_attribute_name(:updated_at)
-      td = @user.updated_at
+      td = l @user.updated_at, format: :long
    
 = link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'

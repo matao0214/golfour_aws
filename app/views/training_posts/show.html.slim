@@ -1,7 +1,5 @@
 h1 投稿の詳細
 
-.nav.justify-content-end
-  =link_to '投稿一覧', root_path, class: 'nav-link'
 table.table.table-hover
   tbody
     tr
@@ -21,10 +19,10 @@ table.table.table-hover
       td= @training_post.training_impression
     tr
       th= TrainingPost.human_attribute_name(:created_at)
-      td= @training_post.created_at
+      td= l @training_post.created_at, format: :long
     tr
       th= TrainingPost.human_attribute_name(:updated_at)
-      td= @training_post.updated_at
+      td= l @training_post.updated_at, format: :long
 
 = link_to '編集', edit_training_post_path, class: 'btn btn-primary mr-3'
 = link_to '削除', @training_post, method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: 'btn btn-danger'
