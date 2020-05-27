@@ -16,7 +16,7 @@ ja:
         training_advance: 上達したこと
         training_task: 見つかった課題
         training_impression: 感想
-        created_at: 登録日時
+        created_at: 投稿日時
         updated_at: 更新日時
 
       user:
@@ -27,7 +27,7 @@ ja:
         golf_reki: ゴルフ歴
         goal: 目標
         created_at: 登録日時
-        created_at: 更新日時
+        updated_at: 更新日時
 
   date:
     abbr_day_names:
