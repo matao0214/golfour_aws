@@ -27,3 +27,4 @@ table.table.table-hover
       td= @training_post.updated_at
 
 = link_to '編集', edit_training_post_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @training_post, method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: 'btn btn-danger'

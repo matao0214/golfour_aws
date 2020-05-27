@@ -28,6 +28,12 @@ class TrainingPostsController < ApplicationController
     redirect_to training_post_url, notice: "投稿を編集しました。"
   end
 
+  def destroy
+    training_post = TrainingPost.find(params[:id])
+    training_post.destroy
+    redirect_to root_url, notice: "投稿を削除しました。"
+  end
+
 private
 
   def training_post_params
