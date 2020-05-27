@@ -3,9 +3,6 @@ h1 ユーザーの詳細
 table.table.table-hover
   tbody
     tr
-      th = User.human_attribute_name(:id)
-      td = @user.id
-    tr
       th = User.human_attribute_name(:nickname)
       td = @user.nickname
     tr
