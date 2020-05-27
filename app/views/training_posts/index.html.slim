@@ -12,16 +12,6 @@ table.table.table-hover
   tbody
     - @training_posts.each do |post|
       tr
-        td= 
+        td= link_to post.user.nickname, user_path(post.user_id)
         td= link_to post.training_impression, post
         td= post.created_at
-
-    / 投稿ごとにユーザー名を表示したいができない
-    / 以下のコードで試したがダメだった
-
-    / - @training_posts.each do |post|
-    /   - user = User.find_by（id: post[:uset_id]）
-    /   tr
-    /     td= user.nickname
-    /     td= post.training_impression
-    /     td= post.created_at
