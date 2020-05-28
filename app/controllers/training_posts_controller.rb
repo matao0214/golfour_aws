@@ -1,10 +1,10 @@
 class TrainingPostsController < ApplicationController
+  before_action :set_training_post, only: [:show, :edit, :update, :destroy]
   def index
     @training_posts = TrainingPost.all.order(created_at: :desc)
   end
 
   def show
-    @training_post = TrainingPost.find(params[:id])
   end
 
   def new
@@ -22,11 +22,9 @@ class TrainingPostsController < ApplicationController
   end
 
   def edit
-    @training_post = TrainingPost.find(params[:id])
   end
 
   def update
-    @training_post = TrainingPost.find(params[:id])
     if @training_post.update(training_post_params)
       redirect_to training_post_url, notice: "投稿を編集しました。"
     else
@@ -35,8 +33,7 @@ class TrainingPostsController < ApplicationController
   end
 
   def destroy
-    training_post = TrainingPost.find(params[:id])
-    training_post.destroy
+    @training_post.destroy
     redirect_to root_url, notice: "投稿を削除しました。"
   end
 
@@ -45,4 +42,9 @@ private
   def training_post_params
     params.require(:training_post).permit(:training_place, :training_advance, :training_task, :training_impression)
   end
+
+  def set_training_post
+    @training_post = TrainingPost.find(params[:id])
+  end
+
 end
