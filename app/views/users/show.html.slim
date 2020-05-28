@@ -20,5 +20,6 @@ table.table.table-hover
     tr
       th = User.human_attribute_name(:updated_at)
       td = l @user.updated_at, format: :long
-   
-= link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'
+
+- if current_user.id == @user.id 
+  = link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'
