@@ -1,13 +1,13 @@
 h1 ユーザーの詳細
 
+- if current_user.id == @user.id 
+  = link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'
+
 table.table.table-hover
   tbody
     tr
       th = User.human_attribute_name(:nickname)
       td = @user.nickname
-    tr
-      th = User.human_attribute_name(:email)
-      td = @user.email
     tr
       th = User.human_attribute_name(:golf_reki)
       td = @user.golf_reki
@@ -21,5 +21,18 @@ table.table.table-hover
       th = User.human_attribute_name(:updated_at)
       td = l @user.updated_at, format: :long
 
-- if current_user.id == @user.id 
-  = link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'
+h3 #{@user.nickname}さんの投稿
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= TrainingPost.human_attribute_name(:training_place)
+      th= TrainingPost.human_attribute_name(:training_impression)
+      th= TrainingPost.human_attribute_name(:created_at)
+  tbody
+    - @training_posts.each do |post|
+      tr
+        td= post.training_place
+        td= link_to post.training_impression, post
+        td= l post.created_at, format: :short
