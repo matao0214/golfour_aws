@@ -1,7 +1,6 @@
 class TrainingPostsController < ApplicationController
   def index
-    @training_posts = TrainingPost.all
-    
+    @training_posts = TrainingPost.all.order(created_at: :desc)
   end
 
   def show
