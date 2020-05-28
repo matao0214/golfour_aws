@@ -3,7 +3,8 @@ class TrainingPostsController < ApplicationController
   before_action :correct_training_post, only: [:edit, :update]
 
   def index
-    @training_posts = TrainingPost.all.order(created_at: :desc)
+    @q = TrainingPost.all.ransack(params[:q])
+    @training_posts = @q.result(distinct: true).recent
   end
 
   def show
