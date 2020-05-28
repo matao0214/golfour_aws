@@ -1,5 +1,7 @@
 class TrainingPostsController < ApplicationController
   before_action :set_training_post, only: [:show, :edit, :update, :destroy]
+  before_action :correct_training_post, only: [:edit, :update]
+
   def index
     @training_posts = TrainingPost.all.order(created_at: :desc)
   end
@@ -47,4 +49,10 @@ private
     @training_post = TrainingPost.find(params[:id])
   end
 
+  def correct_training_post
+    set_training_post
+    if current_user.id != @training_post.user_id
+      redirect_to root_path
+    end
+  end
 end
