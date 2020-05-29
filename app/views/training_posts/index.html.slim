@@ -1,6 +1,21 @@
 h1 投稿一覧
-
-= link_to '新規投稿', new_training_post_path, class: 'btn btn-primary'
+= search_form_for @q, class: 'mb-5' do |f|
+  .form_gorou.row
+    = f.label :training_place_cont, '練習場所', class: 'col-sm-2 col-form-label'
+    .col-sm-4
+      = f.search_field :training_place_cont, class: 'form-control'
+    = f.label :training_advance_cont, '上達したこと', class: 'col-sm-2 col-form-label'
+    .col-sm-4
+      = f.search_field :training_advance_cont, class: 'form-control'
+  .form_group.row
+    = f.label :training_task_cont, '課題・悩み', class: 'col-sm-2 col-form-label'
+    .col-sm-4
+      = f.search_field :training_task_cont, class: 'form-control'
+    = f.label :training_impression_cont, '感想', class: 'col-sm-2 col-form-label'
+    .col-sm-4
+      = f.search_field :training_impression_cont, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-outline-primary'
 
 .mb-3
 table.table.table-hover
