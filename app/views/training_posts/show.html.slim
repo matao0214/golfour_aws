@@ -1,0 +1,30 @@
+h1 投稿の詳細
+
+table.table.table-hover
+  tbody
+    tr
+      th= User.human_attribute_name(:nickname)
+      td= @training_post.user.nickname
+    tr
+      th= TrainingPost.human_attribute_name(:training_place)
+      td= @training_post.training_place
+    tr
+      th= TrainingPost.human_attribute_name(:training_advance)
+      td= @training_post.training_advance
+    tr
+      th= TrainingPost.human_attribute_name(:training_task)
+      td= @training_post.training_task
+    tr
+      th= TrainingPost.human_attribute_name(:training_impression)
+      td= @training_post.training_impression
+    tr
+      th= TrainingPost.human_attribute_name(:created_at)
+      td= l @training_post.created_at, format: :long
+    tr
+      th= TrainingPost.human_attribute_name(:updated_at)
+      td= l @training_post.updated_at, format: :long
+
+/ - if current_user.own_post?(@training_post)
+- if current_user.id == @training_post.user_id
+    = link_to '編集', edit_training_post_path, class: 'btn btn-primary mr-3'
+    = link_to '削除', @training_post, method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: 'btn btn-danger'

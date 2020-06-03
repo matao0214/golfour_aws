@@ -17,3 +17,19 @@ module Golfour
     # the framework and any gems in your application.
   end
 end
+
+module App
+  class Application < Rails::Application
+    config.generators do |g|
+      g.javascripts false
+      g.test_framework false
+    end
+  end
+end
+
+module TimeFormatSandbox
+  class Application < Rails::Application
+    # タイムゾーンを日本時間に設定
+    config.time_zone = 'Asia/Tokyo'
+  end
+end

@@ -7,7 +7,18 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models: 
+      training_post: 投稿
     attributes:
+      training_post:
+        id: ID
+        training_place: 練習した場所
+        training_advance: 上達したこと
+        training_task: 見つかった課題
+        training_impression: 感想
+        created_at: 投稿日時
+        updated_at: 更新日時
+
       user:
         nickname: ユーザー名
         email: メールアドレス
@@ -16,7 +27,7 @@ ja:
         golf_reki: ゴルフ歴
         goal: 目標
         created_at: 登録日時
-        created_at: 更新日時
+        updated_at: 更新日時
 
   date:
     abbr_day_names:
@@ -153,6 +164,7 @@ ja:
     select:
       prompt: 選択してください
     submit:
+      post: 投稿する
       create: 登録する
       submit: 保存する
       update: 更新する

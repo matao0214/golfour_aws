@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'training_posts#index'
+  resources :training_posts
   resources :users, except: :index
 
   get '/login', to: 'sessions#new'

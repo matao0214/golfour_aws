@@ -1,0 +1,20 @@
+
+- if training_post.errors.present?
+ul#error_explanation
+  - training_post.errors.full_messages.each do |message|
+    li= message
+
+= form_with model: training_post, local: true do |f|
+  .form-group
+    = f.label :training_place
+    = f.text_field :training_place, class: 'form-control', id: 'training_post_training_place'
+  .form-group
+    = f.label :training_advance
+    = f.text_field :training_advance, class: 'form-control', id: 'training_post_training_advance'
+  .form-group
+    = f.label :training_task
+    = f.text_field :training_task, class: 'form-control', id: 'training_post_training_task'
+  .form-group
+    = f.label :training_impression
+    = f.text_area :training_impression, rows: 5,  class: 'form-control', id: 'training_post_training_impression'
+  = f.submit nil, class: 'btn btn-primary', value: '投稿する'
