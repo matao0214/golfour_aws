@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def show
-    @training_posts = TrainingPost.where(user_id: @user.id).recent
+    @training_posts = @user.training_posts.recent
   end
 
   def new
