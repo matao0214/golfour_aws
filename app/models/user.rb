@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def own?(user)
     self == user
   end
+
+  def already_liked?(post)
+    self.likes.exists?(training_post_id: post.id)
+  end
 end
