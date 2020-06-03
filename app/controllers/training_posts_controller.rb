@@ -51,7 +51,7 @@ private
   end
 
   def correct_training_post
-    redirect_to root_path unless current_user.id = @training_post.user_id
+    redirect_to root_path unless current_user.id == @training_post.user_id
     # redirect_to root_path unless current_user.own_post?(@training_post)
     # 上記で書くとundefined method `own_post?'となってしまう
   end
