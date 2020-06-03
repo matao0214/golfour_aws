@@ -1,4 +1,8 @@
 h1 投稿の詳細
+/ - if current_user.own_post?(@training_post)
+- if current_user.id == @training_post.user_id
+    = link_to '編集', edit_training_post_path, class: 'btn btn-primary mr-3'
+    = link_to '削除', @training_post, method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: 'btn btn-danger'
 
 table.table.table-hover
   tbody
@@ -24,7 +28,12 @@ table.table.table-hover
       th= TrainingPost.human_attribute_name(:updated_at)
       td= l @training_post.updated_at, format: :long
 
-/ - if current_user.own_post?(@training_post)
-- if current_user.id == @training_post.user_id
-    = link_to '編集', edit_training_post_path, class: 'btn btn-primary mr-3'
-    = link_to '削除', @training_post, method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: 'btn btn-danger'
+h5
+  | いいね! #{@training_post.likes.count}
+- if current_user.already_liked?(@training_post)
+  = button_to 'いいねを取り消す', training_post_like_path(@training_post), class: 'btn btn-success',method: :delete
+- else
+  = button_to 'いいね', training_post_likes_path(@training_post),class: 'btn btn-success'
+h5 いいね!したユーザー
+- @training_post.liked_users.each do |user|
+  li= link_to "#{user.nickname}", user_path(user.id)
