@@ -6,4 +6,8 @@ class User < ApplicationRecord
   validates :goal, length: { maximum: 50 }
 
   has_many :training_posts
+
+  def own?(user)
+    self == user
+  end
 end
