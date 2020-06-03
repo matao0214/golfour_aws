@@ -42,6 +42,6 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    redirect_to root_path if !current_user.own?(@user)
+    redirect_to root_path unless current_user.own?(@user)
   end
 end

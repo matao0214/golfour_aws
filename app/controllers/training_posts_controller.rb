@@ -51,6 +51,6 @@ private
   end
 
   def correct_training_post
-    redirect_to root_path if !current_user.own_post?(@training_post)
+    redirect_to root_path unless current_user.own_post?(@training_post)
   end
 end
