@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'training_posts#index'
-  resources :training_posts
+  resources :training_posts do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :users, except: :index
 
   get '/login', to: 'sessions#new'
