@@ -28,12 +28,16 @@ table.table.table-hover
       th= TrainingPost.human_attribute_name(:updated_at)
       td= l @training_post.updated_at, format: :long
 
-h5
-  | いいね! #{@training_post.likes.count}
 - if current_user.already_liked?(@training_post)
-  = button_to 'いいねを取り消す', training_post_like_path(@training_post), class: 'btn btn-success',method: :delete
+  = link_to training_post_like_path(@training_post), method: :delete
+    = icon('fas', 'heart', class: 'fa-2x')
 - else
-  = button_to 'いいね', training_post_likes_path(@training_post),class: 'btn btn-success'
-h5 いいね!したユーザー
+  = link_to training_post_likes_path(@training_post), method: :post
+     = icon('far', 'heart', class: 'fa-2x')
+= @training_post.likes.count
+
 - @training_post.liked_users.each do |user|
-  li= link_to "#{user.nickname}", user_path(user.id)
+  - unless user == nil
+    h6 いいねしたユーザー
+    li= link_to "#{user.nickname}", user_path(user.id)
+    
