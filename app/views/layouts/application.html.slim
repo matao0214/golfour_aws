@@ -18,6 +18,8 @@ html
           li.nav-item= link_to '投稿一覧', root_url, class: 'nav-link'
           li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
         - else
+          li.nav-item= link_to 'トップ', top_path, class: 'nav-link' 
+          li.nav-item= link_to '新規登録', new_user_path, class: 'nav-link' 
           li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'          
     .container
       - if flash.notice.present?
