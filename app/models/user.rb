@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :goal, length: { maximum: 50 }
 
   has_many :training_posts
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :training_post
 
   def own?(user)
