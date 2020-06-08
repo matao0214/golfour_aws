@@ -13,6 +13,10 @@ class User < ApplicationRecord
     self == user
   end
 
+  def own_post?(post)
+   id == post.user_id
+  end
+
   def already_liked?(post)
     likes.exists?(training_post_id: post.id)
   end
