@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :training_post
 
+  GUEST_EMAIL = 'guest@example.com'
+
   def own?(user)
     self == user
   end

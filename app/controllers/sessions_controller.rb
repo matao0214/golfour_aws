@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def guest_login
-    user = User.find_by(email: 'guest@example.com')
+    user = User.find_by(email: User::GUEST_EMAIL)
     session[:user_id] = user.id
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
