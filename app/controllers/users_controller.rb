@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
 
@@ -17,7 +18,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_url(@user), notice: "ユーザー「#{@user.nickname}」を登録しました。"
+      session[:user_id] = @user.id
+      redirect_to root_url, notice: "ユーザー「#{@user.nickname}」を登録しました。"
     else
       render :new
     end

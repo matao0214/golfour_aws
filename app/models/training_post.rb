@@ -1,5 +1,7 @@
 class TrainingPost < ApplicationRecord
   belongs_to :user
+  has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
 
   scope :recent, -> { order(created_at: :desc) }
 
@@ -10,11 +12,7 @@ class TrainingPost < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     []
   end
-
-  # def own_post?(post)
-  #   self.id == post.user_id
-  # end
-
+  
   validates :training_place, presence: true, length: { maximum: 50 }
   validates :training_advance, presence: true, length: { maximum: 150 }
   validates :training_task, presence: true, length: { maximum: 150 }
