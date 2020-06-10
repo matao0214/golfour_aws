@@ -5,7 +5,7 @@
 
 = form_with model: user, local: true do |f|
   .form-group
-    = f.label :nickname, '名前'
+    = f.label :nickname, 'ユーザー名'
     = f.text_field :nickname, class: 'form-control'
   .form-group
     = f.label :email, 'メールアドレス'
@@ -17,9 +17,9 @@
     = f.label :password_cocfirmation, 'パスワード(確認)'
     = f.password_field :password_cocfirmation, class: 'form-control'
   .form-group
-    = f.label :golf_reki, 'ゴルフ歴'
+    = f.label :golf_reki, 'ゴルフ歴', class: 'mt-3'
     = f.select :golf_reki, [['未経験'], ['1年'], ['2年'],['3年'],['4年'],['5年以上']], {}, class: 'form-control'
   .form-group
     = f.label :goal, '目標'
-    = f.text_field :goal, class: 'form-control'
-  = f.submit '登録する', class: 'btn btn-primary'
+    = f.text_area :goal, class: 'form-control'
+  = f.submit '新規登録する', class: 'btn btn-primary'
