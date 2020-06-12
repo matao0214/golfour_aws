@@ -7,7 +7,7 @@ table.table.table-hover
   tbody
     tr
       th= User.human_attribute_name(:nickname)
-      td= @training_post.user.nickname
+      td.w-80= @training_post.user.nickname
     tr
       th= TrainingPost.human_attribute_name(:training_place)
       td= @training_post.training_place
