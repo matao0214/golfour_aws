@@ -9,7 +9,9 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .app-title.navbar.sticky-top.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand GolfOur
+      .navbar-brand 
+        | GolfOur
+        = icon('fas', 'golf-ball', class: 'ml-1')
 
       ul.navbar-nav.ml-auto
         - if current_user

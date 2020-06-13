@@ -22,7 +22,7 @@
     = f.password_field :password_cocfirmation, class: 'form-control'
   .form-group
     = f.label :golf_reki, 'ゴルフ歴', class: 'mt-3'
-    span.badge.badge-secondary 任意
+    span.badge.badge-primary 必須
     = f.select :golf_reki, [['未経験'], ['1年'], ['2年'],['3年'],['4年'],['5年以上']], {}, class: 'form-control'
   .form-group
     = f.label :goal, '目標'
