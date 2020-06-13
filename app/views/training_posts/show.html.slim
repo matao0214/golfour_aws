@@ -36,7 +36,7 @@ table.table.table-hover
 = @training_post.likes.count
 
 - unless @training_post.liked_users == nil
- h6 いいねしたユーザー
+  h6 いいねしたユーザー
 - @training_post.liked_users.each do |user|
-  = link_to "#{user.nickname}", user_path(user.id)
+  li= link_to "#{user.nickname}", user_path(user.id)
     
