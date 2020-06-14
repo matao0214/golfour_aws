@@ -1,6 +1,6 @@
 .login_form
   .card.card-body
-    h3 ログイン
+    h3.mb-3 ログイン
     = form_with scope: :session, local: true do |f|
       .form-group
         = f.text_field :email, class: 'form-control', id: 'session_email', placeholder: 'メールアドレス'
