@@ -1,28 +1,21 @@
-h1 投稿一覧
-= search_form_for @q, class: 'mb-5' do |f|
-  .form_gorou.row
-    = f.label :training_place_cont, '練習場所', class: 'col-sm-2 col-form-label'
-    .col-sm-4
-      = f.search_field :training_place_cont, class: 'form-control'
-    = f.label :training_advance_cont, '上達したこと', class: 'col-sm-2 col-form-label'
-    .col-sm-4
-      = f.search_field :training_advance_cont, class: 'form-control'
-  .form_group.row
-    = f.label :training_task_cont, '課題・悩み', class: 'col-sm-2 col-form-label'
-    .col-sm-4
-      = f.search_field :training_task_cont, class: 'form-control'
-    = f.label :training_impression_cont, '感想', class: 'col-sm-2 col-form-label'
-    .col-sm-4
-      = f.search_field :training_impression_cont, class: 'form-control'
-  .form-group
-    = f.submit class: 'btn btn-outline-primary'
+button.btn.btn-primary.mt-3 aria-controls= "collapseExample" aria-expanded="false" data-target="#collapseExample" data-toggle="collapse" type="button" 
+  | キーワードで検索
+#collapseExample.collapse
+  .card.card-body
+    = search_form_for @q do |f|
+      .form_group
+        = f.search_field :training_place_cont, class: 'form-control mb-3', placeholder: '練習場所'
+        = f.search_field :training_advance_cont, class: 'form-control my-3', placeholder: '上達したこと'
+        = f.search_field :training_task_cont, class: 'form-control my-3', placeholder: '課題・悩み'
+        = f.search_field :training_impression_cont, class: 'form-control my-3', placeholder: '感想'
+        = f.submit class: 'btn btn-outline-primary'
 
 .mb-3
 table.table.table-hover
   thead.thead-default
     tr
       th= User.human_attribute_name(:nickname)
-      th= TrainingPost.human_attribute_name(:training_impression)
+      th.w-75= TrainingPost.human_attribute_name(:training_impression)
       th= TrainingPost.human_attribute_name(:created_at)
   tbody
     - @training_posts.each do |post|
