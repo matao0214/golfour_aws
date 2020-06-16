@@ -8,5 +8,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :goal, limit: 50
 
       t.timestamps
+    end
   end
 end
