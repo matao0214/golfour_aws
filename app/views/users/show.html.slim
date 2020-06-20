@@ -19,22 +19,46 @@ table.table.table-hover
       th = User.human_attribute_name(:updated_at)
       td = l @user.updated_at, format: :long
 
-h3 #{@user.nickname}さんの投稿
-
-.mb-3
-table.table.table-hover
-  thead.thead-default
-    tr
-      th= TrainingPost.human_attribute_name(:training_place)
-      th= TrainingPost.human_attribute_name(:training_advance)
-      th= TrainingPost.human_attribute_name(:training_task)
-      th= TrainingPost.human_attribute_name(:training_impression)
-      th= TrainingPost.human_attribute_name(:created_at)
-  tbody
-    - @training_posts.each do |post|
-      tr
-        td= post.training_place
-        td= post.training_advance
-        td= post.training_task
-        td= link_to post.training_impression, post
-        td= l post.created_at, format: :short
+ul#myTab.nav.nav-tabs.nav-fill role="tablist" 
+  li.nav-item
+    a#user_post-tab.nav-link.active aria-controls="user_post" aria-selected="true" data-toggle="tab" href="#user_post" role="tab"  過去の投稿
+  li.nav-item
+    a#liked_post-tab.nav-link aria-controls="liked_post" aria-selected="false" data-toggle="tab" href="#liked_post" role="tab"  いいねした投稿
+#myTabContent.tab-content
+  #user_post.tab-pane.fade.show.active aria-labelledby="user_post-tab" role="tabpanel"  
+    table.table.table-hover
+      thead.thead-default
+        tr
+          th= TrainingPost.human_attribute_name(:training_place)
+          th= TrainingPost.human_attribute_name(:training_advance)
+          th= TrainingPost.human_attribute_name(:training_task)
+          th= TrainingPost.human_attribute_name(:training_impression)
+          th= TrainingPost.human_attribute_name(:created_at)
+      tbody
+        - @training_posts.each do |post|
+          tr
+            td= post.training_place
+            td= post.training_advance
+            td= post.training_task
+            td= link_to post.training_impression, post
+            td= l post.created_at, format: :short
+  #liked_post.tab-pane.fade aria-labelledby="liked_post-tab" role="tabpanel"
+    table.table.table-hover
+      thead.thead-default
+        tr
+          th.w-20= User.human_attribute_name(:nickname)
+          th= TrainingPost.human_attribute_name(:training_place)
+          th= TrainingPost.human_attribute_name(:training_advance)
+          th= TrainingPost.human_attribute_name(:training_task)
+          th= TrainingPost.human_attribute_name(:training_impression)
+          th= TrainingPost.human_attribute_name(:created_at)
+      tbody
+        - @liked_training_posts.each do |post|
+          tr
+            td= link_to post.user.nickname, user_path(post.user_id)
+            td= post.training_place
+            td= post.training_advance
+            td= post.training_task
+            td= link_to post.training_impression, post
+            td= l post.created_at, format: :short
+  

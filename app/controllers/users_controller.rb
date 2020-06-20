@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @training_posts = @user.training_posts.recent
+    @liked_training_posts = @user.liked_posts.recent
   end
 
   def new
