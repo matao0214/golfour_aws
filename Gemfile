@@ -69,3 +69,7 @@ gem 'ransack'
 gem 'font-awesome-sass', '~> 5.13.0'
 gem 'jquery-rails'
 gem 'meta-tags'
+gem "gmaps4rails"
+gem "geocoder"
+gem "gon"
+gem "dotenv-rails"
