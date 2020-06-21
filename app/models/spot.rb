@@ -1,5 +1,5 @@
 class Spot < ApplicationRecord
-  belongs_to :review
+  belongs_to :training_post
 
   geocoded_by :address
   after_validation :geocode
