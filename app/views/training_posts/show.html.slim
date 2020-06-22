@@ -27,6 +27,12 @@ table.table.table-hover
       th= TrainingPost.human_attribute_name(:updated_at)
       td= l @training_post.updated_at, format: :long
 
+
+.show
+  .show_address
+    = @training_post.spot.address
+  .show_maps id='show_map' style='height: 320px; width: 400px;'
+
 - if current_user.already_liked?(@training_post)
   = link_to training_post_like_path(@training_post), method: :delete
     = icon('fas', 'heart', class: 'fa-2x')
