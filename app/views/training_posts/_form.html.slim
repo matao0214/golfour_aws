@@ -22,8 +22,8 @@ ul#error_explanation
     = f.text_area :training_impression, rows: 3,  class: 'form-control', id: 'training_post_training_impression'
   spot
   = f.fields_for :spot do |s|
-    = s.label :address, '練習場所(Google Mapで検索)', class: 'spot_title'
-    = s.text_field :address, placeholder: 'スポットを入力', id: 'address', class: 'spot_text'
+    = s.label :address, '練習した場所', class: 'spot_title'
+    = s.text_field :address, placeholder: '練習した場所を入力', id: 'address', class: 'spot_text'
   input onclick='codeAddress()' type= 'button' value= '検索する'
-  .map id= 'map' style= 'height: 320px; width: 640px'
-  = f.submit nil, class: 'btn btn-primary', value: '投稿する'
+  .map id= 'map' style= 'height: 320px; width: 100%'
+  = f.submit nil, class: 'btn btn-primary mt-3', value: '投稿する'
