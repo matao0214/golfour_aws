@@ -16,10 +16,12 @@ ul#error_explanation
     = f.label :training_impression
     span.badge.badge-secondary 任意
     = f.text_area :training_impression, rows: 3,  class: 'form-control', id: 'training_post_training_impression'
-  spot
   = f.fields_for :spot do |s|
     = s.label :address, '練習した場所', class: 'spot_title'
-    = s.text_field :address, placeholder: '練習した場所を入力', id: 'address', class: 'spot_text'
-  input onclick='codeAddress()' type= 'button' value= '検索する'
+    span.badge.badge-primary 必須
+    .form-inline.mb-1
+      = s.text_field :address, id: 'address', class: 'spot_text form-control'
+      input.btn.btn-secondary onclick='codeAddress()' type= 'button' value= '練習した場所を検索'
+
   .map id= 'map' style= 'height: 320px; width: 100%'
   = f.submit nil, class: 'btn btn-primary mt-3', value: '投稿する'
