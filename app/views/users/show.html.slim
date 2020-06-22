@@ -29,7 +29,6 @@ ul#myTab.nav.nav-tabs.nav-fill role="tablist"
     table.table.table-hover
       thead.thead-default
         tr
-          th= TrainingPost.human_attribute_name(:training_place)
           th= TrainingPost.human_attribute_name(:training_advance)
           th= TrainingPost.human_attribute_name(:training_task)
           th= TrainingPost.human_attribute_name(:training_impression)
@@ -37,7 +36,6 @@ ul#myTab.nav.nav-tabs.nav-fill role="tablist"
       tbody
         - @training_posts.each do |post|
           tr
-            td= post.training_place
             td= post.training_advance
             td= post.training_task
             td= link_to post.training_impression, post
@@ -47,7 +45,6 @@ ul#myTab.nav.nav-tabs.nav-fill role="tablist"
       thead.thead-default
         tr
           th.w-20= User.human_attribute_name(:nickname)
-          th= TrainingPost.human_attribute_name(:training_place)
           th= TrainingPost.human_attribute_name(:training_advance)
           th= TrainingPost.human_attribute_name(:training_task)
           th= TrainingPost.human_attribute_name(:training_impression)
@@ -56,7 +53,6 @@ ul#myTab.nav.nav-tabs.nav-fill role="tablist"
         - @liked_training_posts.each do |post|
           tr
             td= link_to post.user.nickname, user_path(post.user_id)
-            td= post.training_place
             td= post.training_advance
             td= post.training_task
             td= link_to post.training_impression, post

@@ -5,10 +5,6 @@ ul#error_explanation
 
 = form_with model: training_post, local: true, multipart: true do |f|
   .form-group
-    = f.label :training_place
-    span.badge.badge-primary 必須
-    = f.text_field :training_place, class: 'form-control', id: 'training_post_training_place'
-  .form-group
     = f.label :training_advance
     span.badge.badge-primary 必須
     = f.text_area :training_advance, rows: 3, class: 'form-control', id: 'training_post_training_advance'

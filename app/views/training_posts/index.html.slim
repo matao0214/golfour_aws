@@ -4,7 +4,6 @@
   .dropdown-menu aria-labelledby="dropdownMenu1" 
     = search_form_for @q do |f|
       .form_group
-        = f.search_field :training_place_cont, class: 'form-control mb-3 dropdown-item', placeholder: '練習場所'
         = f.search_field :training_advance_cont, class: 'form-control my-3 dropdown-item', placeholder: '上達したこと'
         = f.search_field :training_task_cont, class: 'form-control my-3 dropdown-item', placeholder: '課題・悩み'
         = f.search_field :training_impression_cont, class: 'form-control my-3 dropdown-item', placeholder: '感想'
