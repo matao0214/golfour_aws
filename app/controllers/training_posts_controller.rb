@@ -9,10 +9,15 @@ class TrainingPostsController < ApplicationController
 
   def show
     @like = Like.new
+    @lat = @training_post.spot.latitude
+    @lng = @training_post.spot.longitude
+    gon.lat = @lat
+    gon.lng = @lng
   end
 
   def new
     @training_post = TrainingPost.new
+    @training_post.build_spot
   end
 
   def create
@@ -44,7 +49,7 @@ class TrainingPostsController < ApplicationController
 private
 
   def training_post_params
-    params.require(:training_post).permit(:training_place, :training_advance, :training_task, :training_impression)
+    params.require(:training_post).permit(:training_advance, :training_task, :training_impression, spot_attributes: [:address])
   end
 
   def set_training_post

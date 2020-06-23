@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_025116) do
+ActiveRecord::Schema.define(version: 2020_06_23_014729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,17 @@ ActiveRecord::Schema.define(version: 2020_06_09_025116) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "spots", force: :cascade do |t|
+    t.string "address", limit: 50, null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.bigint "training_post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["training_post_id"], name: "index_spots_on_training_post_id"
+  end
+
   create_table "training_posts", force: :cascade do |t|
-    t.string "training_place", limit: 50, null: false
     t.text "training_advance", null: false
     t.text "training_task", null: false
     t.text "training_impression"
@@ -49,5 +58,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_025116) do
 
   add_foreign_key "likes", "training_posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "spots", "training_posts"
   add_foreign_key "training_posts", "users"
 end
