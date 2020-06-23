@@ -26,11 +26,10 @@ h2 投稿の詳細
           th= TrainingPost.human_attribute_name(:updated_at)
           td= l @training_post.updated_at, format: :long
   .col-sm-4
-    .show
-      .show_maps id='show_map' style='height: 320px; width: 100%;'
-      .show_address.text-center
-        | 練習した場所：
-        = @training_post.spot.address
+    .show_map id='show_map'
+    .show_address.text-center
+      | 練習した場所：
+      = @training_post.spot.address
       
 
 - if current_user.already_liked?(@training_post)
