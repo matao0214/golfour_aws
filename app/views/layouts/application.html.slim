@@ -28,10 +28,11 @@ html
           li.nav-item= link_to '新規登録', new_user_path, class: 'nav-link' 
           li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'  
           li.nav-item= link_to 'ゲストユーザーでログイン', guest_login_path, method: :post, class: 'nav-link' 
-    .container
-      - if flash.notice.present?
-        .alert.alert-success= flash.notice
-      = yield
-      script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAP_KEY"]}&callback=initMap"
-      script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
-      script src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", type:"text/javascript"
+    .jumbotoron.jumbotoron-fluid     
+      .container
+        - if flash.notice.present?
+          .alert.alert-success= flash.notice
+        = yield
+        script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAP_KEY"]}&callback=initMap"
+        script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
+        script src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", type:"text/javascript"

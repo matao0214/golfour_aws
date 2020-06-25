@@ -1,10 +1,9 @@
-.text-center.mt-5
-  .jumbotron
-    h1 GolfOurへようこそ
-    h3 ゴルフ初心者専用の投稿アプリです。練習記録を投稿してみましょう！
-    .button_top
-      p 
-      = link_to '新規登録', new_user_path, class: 'btn btn-primary btn-lg m-1'
-      = link_to 'ログイン', login_path, class: 'btn btn-success btn-lg m-1'
-      p 
-      = link_to 'ゲストユーザーでログイン', guest_login_path, method: :post, class: 'btn btn-info btn-lg m-1'
+.top-container
+  h1.pt-5 GolfOurへようこそ
+  h4 ゴルフ初心者専用の投稿アプリです。練習記録を投稿してみましょう！
+  .button_top
+    p 
+    = link_to '新規登録', new_user_path, class: 'btn btn-primary btn-lg m-1'
+    = link_to 'ログイン', login_path, class: 'btn btn-success btn-lg m-1'
+    p 
+    = link_to 'ゲストユーザーでログイン', guest_login_path, method: :post, class: 'btn btn-info btn-lg m-1'

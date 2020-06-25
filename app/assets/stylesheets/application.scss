@@ -15,3 +15,11 @@
 .li_s_none {
   list-style: none;
 }
+
+.jumbotoron {
+  background-image: url("golf-310994.png");
+  background-size: cover;
+  background-color:rgba(255,255,255,0.3);
+  background-blend-mode:lighten;
+  height: 1100px;   //デザインをみやすくするため今は仮設定中。文章量増えて高さが出てきたら削除。
+}
