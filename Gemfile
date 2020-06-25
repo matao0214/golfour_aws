@@ -73,4 +73,3 @@ gem 'meta-tags'
 gem "gmaps4rails"
 gem "geocoder"
 gem "gon"
-
