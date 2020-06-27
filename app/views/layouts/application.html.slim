@@ -11,12 +11,11 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag 'favicon.ico'
   body
-    .app-title.navbar.sticky-top.navbar-expand-md.navbar-light.bg-light
+    .app-title.navbar.fixed-top.navbar-expand-md.navbar-light
       = link_to root_url do 
         .navbar-brand.ml-5
           | GolfOur
           = icon('fas', 'golf-ball', class: 'ml-1')
-
       ul.navbar-nav.ml-auto
         - if current_user
           li.nav-item= link_to current_user.nickname, user_path(current_user), class: 'nav-link'
