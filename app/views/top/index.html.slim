@@ -1,7 +1,11 @@
 .top-container
-  h1.pt-5 GolfOurへようこそ
-  h4 ゴルフ初心者専用の投稿アプリです。練習記録を投稿してみましょう！
-  .button_top
+  = image_tag 'golf-1802020.png'
+  .top-title
+    h1 Golf Our
+    h3 - SNS for Golf Beginners -
+    .top-text
+    h4 ゴルフ初心者向けの投稿アプリです
+    h4 練習記録を投稿してみましょう！
     p 
     = link_to '新規登録', new_user_path, class: 'btn btn-primary btn-lg m-1'
     = link_to 'ログイン', login_path, class: 'btn btn-success btn-lg m-1'
