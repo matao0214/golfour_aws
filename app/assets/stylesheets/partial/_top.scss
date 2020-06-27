@@ -3,9 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .top-container {
-  text-align: center;
-}
-
-.button_top {
-  padding: 50px 50px;
+  font-family: 'arial black';
+  padding-top: 50px;
+  width: 700px;
+  img {
+    width: 700px;
+    height: auto;
+  }
+  .top-title{
+    margin-top: -30px;
+    text-align: center;
+    h1 {
+      font-size: 100px;
+    }
+    h3 {
+      margin-top: -20px;
+    }
+    .top-text {
+      margin-top: 30px;
+    }
+  }
 }
