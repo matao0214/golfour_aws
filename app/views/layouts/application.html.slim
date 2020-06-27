@@ -30,12 +30,12 @@ html
     .jumbotoron.jumbotoron-fluid     
       .container
         - if flash.notice.present?
-          .alert.alert-success= flash.notice
+          .alert.alert-success.mt-5= flash.notice
         = yield
-  footer.footer
-    .container
-      p.text-muted.pt-3 COPYRIGHT &#169; GolfOur ALL RIGHTS RESERVED.
+    footer.footer
+      .container
+        p.text-muted.pt-3 COPYRIGHT &#169; GolfOur ALL RIGHTS RESERVED.
 
-      script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAP_KEY"]}&callback=initMap"
-      script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
-      script src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", type:"text/javascript"
+        script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAP_KEY"]}&callback=initMap"
+        script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
+        script src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", type:"text/javascript"

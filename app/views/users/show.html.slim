@@ -1,6 +1,6 @@
 .card
   .card-body
-    h3#inline-block ユーザー情報
+    h2#inline-block ユーザー情報
     - if current_user.own?(@user)
       = link_to '編集', edit_user_path, class: 'btn btn-primary ml-3 mb-3'
 

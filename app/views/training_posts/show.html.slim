@@ -1,6 +1,6 @@
 .card
   .card-body
-    h3#inline-block 投稿の詳細
+    h2#inline-block 投稿の詳細
     - if current_user.own_post?(@training_post)
       = link_to '編集', edit_training_post_path, class: 'btn btn-primary ml-3 mb-3'
       = link_to '削除', @training_post, method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: 'btn btn-danger ml-2 mb-3'
