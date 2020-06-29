@@ -10,7 +10,7 @@
           tbody
             tr
               th= User.human_attribute_name(:nickname)
-              td.w-80= @training_post.user.nickname
+              td= @training_post.user.nickname
             tr
               th= TrainingPost.human_attribute_name(:training_advance)
               td= @training_post.training_advance
@@ -20,6 +20,12 @@
             tr
               th= TrainingPost.human_attribute_name(:training_impression)
               td= @training_post.training_impression
+            tr
+              th= TrainingContent.human_attribute_name(:training_time)
+              td= "#{@training_post.training_content.training_time}時間"
+            tr
+              th= TrainingContent.human_attribute_name(:training_hits)
+              td= "#{@training_post.training_content.training_hits}球"
             tr
               th= TrainingPost.human_attribute_name(:created_at)
               td= l @training_post.created_at, format: :long

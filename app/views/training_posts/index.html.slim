@@ -10,17 +10,16 @@
           = f.search_field :training_task_cont, class: 'form-control my-3 dropdown-item', placeholder: '課題・悩み'
           = f.search_field :training_impression_cont, class: 'form-control my-3 dropdown-item', placeholder: '感想'
           = f.submit class: 'btn btn-outline-primary ml-3'
-
-  .mb-3
-  table.table.table-hover
-    thead.thead-default
-      tr
-        th= User.human_attribute_name(:nickname)
-        th.w-75= TrainingPost.human_attribute_name(:training_impression)
-        th= TrainingPost.human_attribute_name(:created_at)
-    tbody
-      - @training_posts.each do |post|
-        tr
-          td= link_to post.user.nickname, user_path(post.user_id)
-          td= link_to post.training_impression, post
-          td= l post.created_at, format: :short
+    .mt-3
+      table.table.table-hover
+        thead.thead-default
+          tr
+            th= User.human_attribute_name(:nickname)
+            th= TrainingPost.human_attribute_name(:training_impression)
+            th= TrainingPost.human_attribute_name(:created_at)
+        tbody
+          - @training_posts.each do |post|
+            tr
+              td= link_to post.user.nickname, user_path(post.user_id)
+              td= link_to post.training_impression, post
+              td= l post.created_at, format: :short
