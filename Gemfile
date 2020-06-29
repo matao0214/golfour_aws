@@ -73,3 +73,5 @@ gem 'meta-tags'
 gem "gmaps4rails"
 gem "geocoder"
 gem "gon"
+gem 'groupdate'
+gem "chartkick"

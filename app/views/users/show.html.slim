@@ -27,6 +27,10 @@
         a#user_post-tab.nav-link.active aria-controls="user_post" aria-selected="true" data-toggle="tab" href="#user_post" role="tab"  過去の投稿
       li.nav-item
         a#liked_post-tab.nav-link aria-controls="liked_post" aria-selected="false" data-toggle="tab" href="#liked_post" role="tab"  いいねした投稿
+      li.nav-item
+        a#training_time-tab.nav-link aria-controls="training_time" aria-selected="false" data-toggle="tab" href="#training_time" role="tab"  練習時間
+      li.nav-item
+        a#training_hits-tab.nav-link aria-controls="training_hits" aria-selected="false" data-toggle="tab" href="#training_hits" role="tab"  練習で打った球数
     #myTabContent.tab-content
       #user_post.tab-pane.fade.show.active aria-labelledby="user_post-tab" role="tabpanel"  
         table.table.table-hover
@@ -60,3 +64,7 @@
                 td= post.training_task
                 td= link_to post.training_impression, post
                 td= l post.created_at, format: :short
+      #training_time.tab-pane.fade aria-labelledby="training_time-tab" role="tabpanel"  
+        = column_chart @training_contents.group_by_day(:created_at).sum(:training_time)
+      #training_hits.tab-pane.fade aria-labelledby="training_hits-tab" role="tabpanel"  
+        = column_chart @training_contents.group_by_day(:created_at).sum(:training_hits)
