@@ -18,6 +18,7 @@ class TrainingPostsController < ApplicationController
   def new
     @training_post = TrainingPost.new
     @training_post.build_spot
+    @training_post.build_training_content
   end
 
   def create
@@ -49,7 +50,7 @@ class TrainingPostsController < ApplicationController
 private
 
   def training_post_params
-    params.require(:training_post).permit(:training_advance, :training_task, :training_impression, spot_attributes: [:address])
+    params.require(:training_post).permit(:training_advance, :training_task, :training_impression, spot_attributes: [:address], training_content_attributes: [:training_time, :training_hits])
   end
 
   def set_training_post
