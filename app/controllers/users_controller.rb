@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
     @training_posts = @user.training_posts.recent
     @liked_training_posts = @user.liked_posts.recent
+    @training_contents = TrainingContent.where(training_post_id: @training_posts)
   end
 
   def new

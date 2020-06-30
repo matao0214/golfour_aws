@@ -9,21 +9,39 @@ ul#error_explanation
       .form-group
         = f.label :training_advance
         span.badge.badge-primary 必須
-        = f.text_area :training_advance, rows: 3, class: 'form-control', id: 'training_post_training_advance'
+        = f.text_area :training_advance, rows: 2, class: 'form-control', id: 'training_post_training_advance'
       .form-group
         = f.label :training_task
         span.badge.badge-primary 必須
-        = f.text_area :training_task, rows: 3, class: 'form-control', id: 'training_post_training_task'
+        = f.text_area :training_task, rows: 2, class: 'form-control', id: 'training_post_training_task'
       .form-group
         = f.label :training_impression
         span.badge.badge-secondary 任意
-        = f.text_area :training_impression, rows: 3,  class: 'form-control', id: 'training_post_training_impression'
+        = f.text_area :training_impression, rows: 2,  class: 'form-control', id: 'training_post_training_impression'
+      .form-row
+        = f.fields_for :training_content do |s|
+          .col-sm-6
+            = s.label :training_time, '練習時間', class: ''
+            span.badge.badge-primary 必須
+            .form-row
+              .col-sm-8.mb-1
+                = s.text_field :training_time, class: 'form-control text-right'
+              .col-sm-4.pt-2 時間
+          .col-sm-6
+            = s.label :training_hits, '練習で打った球数', class: ''
+            span.badge.badge-primary 必須
+            .form-row
+              .col-sm-8.mb-1
+                = s.text_field :training_hits, class: 'form-control text-right'
+              .col-sm-4.pt-2 球
     .col-sm-6
       = f.fields_for :spot do |s|
         = s.label :address, '練習した場所', class: 'spot_title'
         span.badge.badge-primary 必須
-        .form-inline.mb-1
-          = s.text_field :address, id: 'address', class: 'spot_text form-control'
-          input.btn.btn-secondary onclick='codeAddress()' type= 'button' value= '練習した場所を検索'
+        .form-row
+          .col-sm-8
+            = s.text_field :address, id: 'address', class: 'spot_text form-control mb-1'
+          .col-sm-4
+            input.btn.btn-secondary.mb-1 onclick='codeAddress()' type= 'button' value= '練習した場所を検索'
       .map id= 'map'
   = f.submit nil, class: 'btn btn-primary mt-3 px-4', value: '投稿する'

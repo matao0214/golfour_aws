@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.button_top {
-  padding-top: 50px;
+.top-container {
+  font-family: 'arial black';
+  margin-top: -20px;
+  padding-bottom: 50px;
+  width: 700px;
+  img {
+    width: 700px;
+    height: auto;
+  }
+  .top-title{
+    margin-top: -30px;
+    text-align: center;
+    h1 {
+      font-size: 100px;
+    }
+    h3 {
+      margin-top: -20px;
+    }
+    .top-text {
+      margin-top: 50px;
+    }
+  }
 }

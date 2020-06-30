@@ -11,12 +11,11 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag 'favicon.ico'
   body
-    .app-title.navbar.sticky-top.navbar-expand-md.navbar-light.bg-light
+    .app-title.navbar.fixed-top.navbar-expand-md.navbar-light
       = link_to root_url do 
-        .navbar-brand
+        .navbar-brand.ml-5
           | GolfOur
           = icon('fas', 'golf-ball', class: 'ml-1')
-
       ul.navbar-nav.ml-auto
         - if current_user
           li.nav-item= link_to current_user.nickname, user_path(current_user), class: 'nav-link'
@@ -24,14 +23,17 @@ html
           li.nav-item= link_to '投稿一覧', root_url, class: 'nav-link'
           li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
         - else
-          li.nav-item= link_to 'トップ', top_path, class: 'nav-link' 
           li.nav-item= link_to '新規登録', new_user_path, class: 'nav-link' 
           li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'  
           li.nav-item= link_to 'ゲストユーザーでログイン', guest_login_path, method: :post, class: 'nav-link' 
-    .container
-      - if flash.notice.present?
-        .alert.alert-success= flash.notice
-      = yield
+    .jumbotoron.jumbotoron-fluid     
+      .container
+        - if flash.notice.present?
+          .alert.alert-success.text-center= flash.notice
+        = yield
+    footer.footer
+      p.text-muted.pt-3 COPYRIGHT &#169; GolfOur ALL RIGHTS RESERVED.
+
       script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAP_KEY"]}&callback=initMap"
       script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
       script src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", type:"text/javascript"
