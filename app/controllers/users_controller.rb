@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @liked_training_posts = @user.liked_posts.recent
     @training_contents = TrainingContent.where(training_post_id: @training_posts)
     # @training_contents = @training_posts.training_contents
-    # 上記の書き方だとtraining_contentテーブルにuser_idが必要？
+    # 上記の書き方だとtraining_contentテーブルにuser_idカラムが必要？
   end
 
   def new
