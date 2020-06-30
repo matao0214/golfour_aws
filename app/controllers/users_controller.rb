@@ -6,9 +6,7 @@ class UsersController < ApplicationController
   def show
     @training_posts = @user.training_posts.recent
     @liked_training_posts = @user.liked_posts.recent
-    @training_contents = TrainingContent.where(training_post_id: @training_posts)
-    # @training_contents = @training_posts.training_contents
-    # 上記の書き方だとtraining_contentテーブルにuser_idカラムが必要？
+    @training_contents = @training_posts.map {|training_post| training_post.training_content}
   end
 
   def new

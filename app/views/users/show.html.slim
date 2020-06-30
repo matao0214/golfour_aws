@@ -64,6 +64,7 @@
                 td= post.training_task
                 td= link_to post.training_impression, post
                 td= l post.created_at, format: :short
+                
       #training_time.tab-pane.fade aria-labelledby="training_time-tab" role="tabpanel"  
         = column_chart @training_contents.group_by_day(:created_at).sum(:training_time), label: "練習時間", messages: {empty: "新規投稿してみよう！"}, xtitle: "", ytitle: "時間"
       #training_hits.tab-pane.fade aria-labelledby="training_hits-tab" role="tabpanel"  
