@@ -36,15 +36,11 @@
         table.table.table-hover
           thead.thead-default
             tr
-              th= TrainingPost.human_attribute_name(:training_advance)
-              th= TrainingPost.human_attribute_name(:training_task)
               th= TrainingPost.human_attribute_name(:training_impression)
               th= TrainingPost.human_attribute_name(:created_at)
           tbody
             - @training_posts.each do |post|
               tr
-                td= post.training_advance
-                td= post.training_task
                 td= link_to post.training_impression, post
                 td= l post.created_at, format: :short
       #liked_post.tab-pane.fade aria-labelledby="liked_post-tab" role="tabpanel"
