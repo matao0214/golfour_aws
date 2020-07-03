@@ -17,7 +17,5 @@ class TrainingPost < ApplicationRecord
     []
   end
   
-  validates :training_advance, presence: true, length: { maximum: 150 }
-  validates :training_task, presence: true, length: { maximum: 150 }
   validates :training_impression, length: { maximum: 150 }
 end
