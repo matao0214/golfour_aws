@@ -4,8 +4,9 @@ class TrainingPost < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   has_one :spot, dependent: :destroy
   has_one :training_content, dependent: :destroy
-  accepts_nested_attributes_for :spot, :training_content
-
+  has_one :training_task, dependent: :destroy
+  accepts_nested_attributes_for :spot, :training_content, :training_task
+  
   scope :recent, -> { order(created_at: :desc) }
 
   def self.ransackable_attributes(auth_object = nil)
