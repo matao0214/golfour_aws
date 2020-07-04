@@ -1,0 +1,2 @@
+module TrainingRecordsHelper
+end
