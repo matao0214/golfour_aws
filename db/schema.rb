@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_042108) do
+ActiveRecord::Schema.define(version: 2020_07_04_073908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,13 +53,13 @@ ActiveRecord::Schema.define(version: 2020_07_03_042108) do
 
   create_table "training_tasks", force: :cascade do |t|
     t.integer "training_post_id", null: false
-    t.integer "training_task_1"
-    t.integer "training_task_2"
-    t.integer "training_task_3"
-    t.integer "training_task_4"
-    t.integer "training_task_5"
-    t.integer "training_task_6"
-    t.integer "training_task_a"
+    t.string "training_task_1"
+    t.string "training_task_2"
+    t.string "training_task_3"
+    t.string "training_task_4"
+    t.string "training_task_5"
+    t.string "training_task_6"
+    t.string "training_task_a"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
