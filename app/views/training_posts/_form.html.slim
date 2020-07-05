@@ -23,30 +23,31 @@ ul#error_explanation
                 = s.text_field :training_hits, class: 'form-control text-right'
               .col-sm-4.pt-2 球
       .form-group.mt-3
-        = f.fields_for :training_task do |s|
-          = s.label :training_task, '悩み・課題'
-          span.badge.badge-secondary 任意
-          .form-check
-            = s.check_box :training_task_1, class:'form-check-input', id:'training_task_1'
-            = s.label :training_taks_1, '球が上手く当たらない', class:'form-check-label', for:'dtraining_task_1'
-          .form-check
-            = s.check_box :training_task_2, class:'form-check-input', id:'training_task_2'
-            = s.label :training_taks_2, 'スライスする（打球が右に曲がる）', class:'form-check-label', for:'dtraining_task_2'
-          .form-check
-            = s.check_box :training_task_3, class:'form-check-input', id:'training_task_3'
-            = s.label :training_taks_3, 'フックする（打球が左に曲がる）', class:'form-check-label', for:'dtraining_task_3'
-          .form-check
-            = s.check_box :training_task_4, class:'form-check-input', id:'training_task_4'
-            = s.label :training_taks_4, '飛距離が出ない', class:'form-check-label', for:'dtraining_task_4'
-          .form-check
-            = s.check_box :training_task_5, class:'form-check-input', id:'training_task_5'
-            = s.label :training_taks_5, 'クラブの番手を変えても飛距離が変わらない', class:'form-check-label', for:'dtraining_task_5'
-          .form-check
-            = s.check_box :training_task_6, class:'form-check-input', id:'training_task_6'
-            = s.label :training_taks_6, 'ダフってしまう（ボールの下を打ってしまう）', class:'form-check-label', for:'dtraining_task_6'
-          .form-check
-            = s.check_box :training_task_a, class:'form-check-input', id:'training_task_a'
-            = s.label :training_taks_a, 'その他', class:'form-check-label', for:'dtraining_task_a'
+        | 悩み・課題
+        span.badge.badge-secondary 任意
+        .card.p-2
+          = f.fields_for :training_task do |s|
+            .form-check
+              = s.check_box :training_task_1, class:'form-check-input', id:'training_task_1'
+              = s.label :training_taks_1, '球が上手く当たらない', class:'form-check-label', for:'training_task_1'
+            .form-check
+              = s.check_box :training_task_2, class:'form-check-input', id:'training_task_2'
+              = s.label :training_taks_2, 'スライスする（打球が右に曲がる）', class:'form-check-label', for:'training_task_2'
+            .form-check
+              = s.check_box :training_task_3, class:'form-check-input', id:'training_task_3'
+              = s.label :training_taks_3, 'フックする（打球が左に曲がる）', class:'form-check-label', for:'training_task_3'
+            .form-check
+              = s.check_box :training_task_4, class:'form-check-input', id:'training_task_4'
+              = s.label :training_taks_4, '飛距離が出ない', class:'form-check-label', for:'training_task_4'
+            .form-check
+              = s.check_box :training_task_5, class:'form-check-input', id:'training_task_5'
+              = s.label :training_taks_5, 'クラブの番手を変えても飛距離が変わらない', class:'form-check-label', for:'training_task_5'
+            .form-check
+              = s.check_box :training_task_6, class:'form-check-input', id:'training_task_6'
+              = s.label :training_taks_6, 'ダフってしまう（ボールの下を打ってしまう）', class:'form-check-label', for:'training_task_6'
+            .form-check
+              = s.check_box :training_task_a, class:'form-check-input', id:'training_task_a'
+              = s.label :training_taks_a, 'その他', class:'form-check-label', for:'training_task_a'
       .form-group
         = f.label :training_impression
         span.badge.badge-secondary 任意
