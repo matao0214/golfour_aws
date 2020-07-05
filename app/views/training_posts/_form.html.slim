@@ -28,10 +28,10 @@ ul#error_explanation
         .card.p-2
           = f.fields_for :training_task do |s|
             .form-check
-              = s.check_box :training_task_1, class:'form-check-input', id:'training_task_1'
+              = s.check_box :training_task_1, {class:'form-check-input', id:'training_task_1'}, '球が上手く当たらない', nil
               = s.label :training_taks_1, '球が上手く当たらない', class:'form-check-label', for:'training_task_1'
             .form-check
-              = s.check_box :training_task_2, class:'form-check-input', id:'training_task_2'
+              = s.check_box :training_task_2, {class:'form-check-input', id:'training_task_2'}, 'スライスする（打球が右に曲がる）', nil
               = s.label :training_taks_2, 'スライスする（打球が右に曲がる）', class:'form-check-label', for:'training_task_2'
             .form-check
               = s.check_box :training_task_3, class:'form-check-input', id:'training_task_3'
