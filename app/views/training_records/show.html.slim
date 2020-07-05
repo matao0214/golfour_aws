@@ -4,4 +4,6 @@
 
   = column_chart @training_contents.group_by_day(:created_at).sum(:training_hits), label: "球", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "", ytitle: "球"
 
-  = bar_chart @training_tasks.group(:training_task_1, :training_task_2).count
+  = bar_chart @training_tasks.group(:training_task_1).having("training_task_1 = '球が上手く当たらない'").count
+  = bar_chart @training_tasks.group(:training_task_2).having("training_task_2 = 'スライスする（打球が右に曲がる）'").count
+  
