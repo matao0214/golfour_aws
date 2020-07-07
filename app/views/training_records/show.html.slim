@@ -1,36 +1,29 @@
 .card.card-body
   h2 #{current_user.nickname}さんの練習記録
 
-  p 練習期間：#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}
-  p 総練習回数：#{@training_posts.count}回
-  p 総練習時間：#{@training_contents.sum(:training_time)}時間
-  p 総打球数：#{@training_contents.sum(:training_hits)}球
-
+  h5 練習記録期間：#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}
+  p 今までの練習回数：#{@training_posts.count}回
+  p 合計練習時間：#{@training_contents.sum(:training_time)}時間
+  p 合計打球数：#{@training_contents.sum(:training_hits)}球
+  
   ul#myTab.nav.nav-tabs.nav-fill role="tablist" 
     li.nav-item
-      a#weekly-tab.nav-link.active aria-controls="weekly" aria-selected="true" data-toggle="tab" href="#weekly" role="tab"  今週
+      a#monthly-tab.nav-link aria-controls="monthly" aria-selected="true" data-toggle="tab" href="#monthly" role="tab"  今月の練習記録
     li.nav-item
-      a#monthly-tab.nav-link aria-controls="monthly" aria-selected="false" data-toggle="tab" href="#monthly" role="tab"  今月
-    li.nav-item
-      a#all-tab.nav-link aria-controls="all" aria-selected="false" data-toggle="tab" href="#all" role="tab"  全期間
+      a#yearly-tab.nav-link aria-controls="yearly" aria-selected="false" data-toggle="tab" href="#yearly" role="tab"  今年の練習記録
   #myTabContent.tab-content
-    #weekly.tab-pane.fade.show.active aria-labelledby="weekly-tab" role="tabpanel"
+    #monthly.tab-pane.fade.show.active aria-labelledby="monthly-tab" role="tabpanel"
       .card.card-body.my-3
-        h5.m-2.text-center 今週の打球数
-        = column_chart @training_contents.group_by_day_of_week(:created_at, format: "%a").sum(:training_hits), label: "打球数", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "", ytitle: "球"
+        h5.m-2.text-center 今月の打球数
+        = column_chart @training_contents.group_by_day_of_month(:created_at).sum(:training_hits), label: "打球数", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "", ytitle: "球"
       .card.card-body.my-3
-        h5.m-2.text-center 今週の練習時間
-        = column_chart @training_contents.group_by_day_of_week(:created_at, format: "%a").sum(:training_time), label: "練習時間", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "", ytitle: "時間"
-      
+        h5.m-2.text-center 今月の練習時間
+        = column_chart @training_contents.group_by_day_of_month(:created_at).sum(:training_time), label: "練習時間", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "", ytitle: "時間"
 
-    #monthly.tab-pane.fade aria-labelledby="monthly-tab" role="tabpanel"
-
-    #monthly.tab-pane.fade aria-labelledby="monthly-tab" role="tabpanel"
-     
-
-    #all.tab-pane.fade aria-labelledby="all-tab" role="tabpanel"
-      
-
-      = bar_chart @training_tasks.group(:training_task_1).having("training_task_1 = '球が上手く当たらない'").count
-      = bar_chart @training_tasks.group(:training_task_2).having("training_task_2 = 'スライスする（打球が右に曲がる）'").count
-  
+    #yearly.tab-pane.fade aria-labelledby="yearly-tab" role="tabpanel"
+      .card.card-body.my-3
+        h5.m-2.text-center 月ごとの打球数
+        = column_chart @training_contents.group_by_month_of_year(:created_at, format: "%b").sum(:training_hits), label: "打球数", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "", ytitle: "球"
+      .card.card-body.my-3
+        h5.m-2.text-center 月ごとの練習時間
+        = column_chart @training_contents.group_by_month_of_year(:created_at, format: "%b").sum(:training_time), label: "練習時間", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "", ytitle: "時間"
