@@ -1,24 +1,24 @@
 .card.card-body
-  h2 #{current_user.nickname}さんの練習記録
+  h2 #{current_user.nickname}さんの練習記録 
 
-  h5 練習記録期間：#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}
-  p 今までの練習回数：#{@training_posts.count}回
-  p 合計練習時間：#{@training_contents.sum(:training_time)}時間
-  p 合計打球数：#{@training_contents.sum(:training_hits)}球
-  
+  h5 練習期間：#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}
+  h5 これまでの練習回数：#{@training_posts.count}回
+  h5 合計練習時間：#{@training_contents.sum(:training_time)}時間
+  h5 合計打球数：#{@training_contents.sum(:training_hits)}球
+
   ul#myTab.nav.nav-tabs.nav-fill role="tablist" 
     li.nav-item
-      a#monthly-tab.nav-link aria-controls="monthly" aria-selected="true" data-toggle="tab" href="#monthly" role="tab"  今月の練習記録
+      a#monthly-tab.nav-link.active aria-controls="monthly" aria-selected="true" data-toggle="tab" href="#monthly" role="tab"  今月の練習記録
     li.nav-item
       a#yearly-tab.nav-link aria-controls="yearly" aria-selected="false" data-toggle="tab" href="#yearly" role="tab"  今年の練習記録
   #myTabContent.tab-content
     #monthly.tab-pane.fade.show.active aria-labelledby="monthly-tab" role="tabpanel"
       .card.card-body.my-3
         h5.m-2.text-center 今月の打球数
-        = column_chart @training_contents.group_by_day_of_month(:created_at).sum(:training_hits), label: "打球数", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "", ytitle: "球"
+        = column_chart @training_contents.group_by_day_of_month(:created_at).sum(:training_hits), label: "打球数", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "練習日(日)", ytitle: "球"
       .card.card-body.my-3
         h5.m-2.text-center 今月の練習時間
-        = column_chart @training_contents.group_by_day_of_month(:created_at).sum(:training_time), label: "練習時間", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "", ytitle: "時間"
+        = column_chart @training_contents.group_by_day_of_month(:created_at).sum(:training_time), label: "練習時間", messages: {empty: "練習記録を投稿してみよう！"}, xtitle: "練習日(日)", ytitle: "時間"
 
     #yearly.tab-pane.fade aria-labelledby="yearly-tab" role="tabpanel"
       .card.card-body.my-3
