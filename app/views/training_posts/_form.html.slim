@@ -34,19 +34,19 @@ ul#error_explanation
               = s.check_box :training_task_2, {class:'form-check-input', id:'training_task_2'}, 'スライスする（打球が右に曲がる）', nil
               = s.label :training_taks_2, 'スライスする（打球が右に曲がる）', class:'form-check-label', for:'training_task_2'
             .form-check
-              = s.check_box :training_task_3, class:'form-check-input', id:'training_task_3'
+              = s.check_box :training_task_3, {class:'form-check-input', id:'training_task_3'}, 'フックする（打球が左に曲がる）', nil
               = s.label :training_taks_3, 'フックする（打球が左に曲がる）', class:'form-check-label', for:'training_task_3'
             .form-check
-              = s.check_box :training_task_4, class:'form-check-input', id:'training_task_4'
+              = s.check_box :training_task_4, {class:'form-check-input', id:'training_task_4'}, '飛距離が出ない', nil
               = s.label :training_taks_4, '飛距離が出ない', class:'form-check-label', for:'training_task_4'
             .form-check
-              = s.check_box :training_task_5, class:'form-check-input', id:'training_task_5'
+              = s.check_box :training_task_5, {class:'form-check-input', id:'training_task_5'}, 'クラブの番手を変えても飛距離が変わらない', nil
               = s.label :training_taks_5, 'クラブの番手を変えても飛距離が変わらない', class:'form-check-label', for:'training_task_5'
             .form-check
-              = s.check_box :training_task_6, class:'form-check-input', id:'training_task_6'
+              = s.check_box :training_task_6, {class:'form-check-input', id:'training_task_6'}, 'ダフってしまう（ボールの下を打ってしまう）', nil
               = s.label :training_taks_6, 'ダフってしまう（ボールの下を打ってしまう）', class:'form-check-label', for:'training_task_6'
             .form-check
-              = s.check_box :training_task_a, class:'form-check-input', id:'training_task_a'
+              = s.check_box :training_task_a, {class:'form-check-input', id:'training_task_a'}, 'その他', nil
               = s.label :training_taks_a, 'その他', class:'form-check-label', for:'training_task_a'
       .form-group
         = f.label :training_impression
