@@ -26,28 +26,28 @@ ul#error_explanation
         | 悩み・課題
         span.badge.badge-secondary 任意
         .card.p-2
-          = f.fields_for :training_task do |s|
-            .form-check
-              = s.check_box :training_task_1, {class:'form-check-input', id:'training_task_1'}, '球が上手く当たらない', nil
-              = s.label :training_taks_1, '球が上手く当たらない', class:'form-check-label', for:'training_task_1'
-            .form-check
-              = s.check_box :training_task_2, {class:'form-check-input', id:'training_task_2'}, 'スライスする（打球が右に曲がる）', nil
-              = s.label :training_taks_2, 'スライスする（打球が右に曲がる）', class:'form-check-label', for:'training_task_2'
-            .form-check
-              = s.check_box :training_task_3, {class:'form-check-input', id:'training_task_3'}, 'フックする（打球が左に曲がる）', nil
-              = s.label :training_taks_3, 'フックする（打球が左に曲がる）', class:'form-check-label', for:'training_task_3'
-            .form-check
-              = s.check_box :training_task_4, {class:'form-check-input', id:'training_task_4'}, '飛距離が出ない', nil
-              = s.label :training_taks_4, '飛距離が出ない', class:'form-check-label', for:'training_task_4'
-            .form-check
-              = s.check_box :training_task_5, {class:'form-check-input', id:'training_task_5'}, 'クラブの番手を変えても飛距離が変わらない', nil
-              = s.label :training_taks_5, 'クラブの番手を変えても飛距離が変わらない', class:'form-check-label', for:'training_task_5'
-            .form-check
-              = s.check_box :training_task_6, {class:'form-check-input', id:'training_task_6'}, 'ダフってしまう（ボールの下を打ってしまう）', nil
-              = s.label :training_taks_6, 'ダフってしまう（ボールの下を打ってしまう）', class:'form-check-label', for:'training_task_6'
-            .form-check
-              = s.check_box :training_task_a, {class:'form-check-input', id:'training_task_a'}, 'その他', nil
-              = s.label :training_taks_a, 'その他', class:'form-check-label', for:'training_task_a'
+         
+          .form-check
+            = f.check_box :task_ball_dont_hits_club, {class:'form-check-input', id:'training_task_1'}, "true", nil
+            = f.label :task_ball_dont_hits_club, '球が上手く当たらない', class:'form-check-label', for:'training_task_1'
+          .form-check
+            = f.check_box :task_slice, {class:'form-check-input', id:'training_task_2'}, "true", nil
+            = f.label :task_slice, 'スライスする（打球が右に曲がる）', class:'form-check-label', for:'training_task_2'
+          .form-check
+            = f.check_box :task_hook, {class:'form-check-input', id:'training_task_3'}, "true", nil
+            = f.label :task_hook, 'フックする（打球が左に曲がる）', class:'form-check-label', for:'training_task_3'
+          .form-check
+            = f.check_box :task_ball_dont_fly_far, {class:'form-check-input', id:'training_task_4'}, "true", nil
+            = f.label :task_ball_dont_fly_far, '飛距離が出ない', class:'form-check-label', for:'training_task_4'
+          .form-check
+            = f.check_box :task_flight_distance_dont_change, {class:'form-check-input', id:'training_task_5'}, "true", nil
+            = f.label :task_flight_distance_dont_change, 'クラブの番手を変えても飛距離が変わらない', class:'form-check-label', for:'training_task_5'
+          .form-check
+            = f.check_box :task_get_duffed, {class:'form-check-input', id:'training_task_6'}, "true", nil
+            = f.label :task_get_duffed, 'ダフってしまう（ボールの下を打ってしまう）', class:'form-check-label', for:'training_task_6'
+          .form-check
+            = f.check_box :task_other, {class:'form-check-input', id:'training_task_a'}, "true", nil
+            = f.label :task_other, 'その他', class:'form-check-label', for:'training_task_a'
       .form-group
         = f.label :training_impression
         span.badge.badge-secondary 任意

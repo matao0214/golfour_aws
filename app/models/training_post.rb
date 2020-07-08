@@ -4,8 +4,7 @@ class TrainingPost < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   has_one :spot, dependent: :destroy
   has_one :training_content, dependent: :destroy
-  has_one :training_task, dependent: :destroy
-  accepts_nested_attributes_for :spot, :training_content, :training_task
+  accepts_nested_attributes_for :spot, :training_content
   
   scope :recent, -> { order(created_at: :desc) }
 
