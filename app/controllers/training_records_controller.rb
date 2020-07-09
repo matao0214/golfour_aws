@@ -3,7 +3,10 @@ class TrainingRecordsController < ApplicationController
   def show
     @training_posts = current_user.training_posts
     @training_contents = TrainingContent.where(training_post_id: @training_posts)
-    
+    rank_tasks
+  end
+
+  def rank_tasks
     all_task = {
       "球が上手く当たらない" => :task_ball_dont_hits_club,
       "スライスする" => :task_slice,
