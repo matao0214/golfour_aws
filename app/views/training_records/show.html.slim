@@ -1,28 +1,64 @@
 .card.card-body
   h2 #{current_user.nickname}さんの練習記録 
-
-  h5 練習期間：#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}
-  h5 これまでの練習回数：#{@training_posts.count}回
-  h5 合計練習時間：#{@training_contents.sum(:training_time)}時間
-  h5 合計打球数：#{@training_contents.sum(:training_hits)}球
-
-  ul#myTab.nav.nav-tabs.nav-fill role="tablist" 
-    li.nav-item
-      a#monthly-tab.nav-link.active aria-controls="monthly" aria-selected="true" data-toggle="tab" href="#monthly" role="tab"  今月の練習記録
-    li.nav-item
-      a#yearly-tab.nav-link aria-controls="yearly" aria-selected="false" data-toggle="tab" href="#yearly" role="tab"  1年間の練習記録
-  #myTabContent.tab-content
-    #monthly.tab-pane.fade.show.active aria-labelledby="monthly-tab" role="tabpanel"
-      .card.card-body.my-3
-        h5.m-2.text-center 今月の打球数
-        = graph_of_training_hits_group_by_day_of_month
-      .card.card-body.my-3
-        h5.m-2.text-center 今月の練習時間
-        = graph_of_training_time_group_by_day_of_month
-    #yearly.tab-pane.fade aria-labelledby="yearly-tab" role="tabpanel"
-      .card.card-body.my-3
-        h5.m-2.text-center 1年間の打球数
-        = graph_of_training_hits_group_by_month_of_year
-      .card.card-body.my-3
-        h5.m-2.text-center 1年間の練習時間
-        = graph_of_training_time_group_by_month_of_year
+  .row.my-3
+    .col-sm-6
+      .card.card-body
+        h4 これまでの練習記録
+        table.table.text-center
+            thead.thead-light
+                tr
+                  th.w-30= "練習期間"
+                  th= "練習回数"
+                  th= "練習時間"
+                  th= "打球数"
+            tbody
+                tr
+                  td= "#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}"
+                  td= "#{@training_posts.count}回"
+                  td= "#{@training_contents.sum(:training_time)}時間"
+                  td= "#{@training_contents.sum(:training_hits)}球"
+              
+    .col-sm-6
+     .card.card-body
+        h4 悩み・課題Top3
+        table.table.table-hover.text-center
+          thead.thead-light
+              tr
+                th= "順位"
+                th= "課題・悩み"
+                th= "投稿回数"
+          tbody
+              tr
+                td= "1位"
+                td= @tasks_desc.keys[0] 
+                td= "#{@tasks_desc.values[0]}回"
+              tr
+                td= "2位"
+                td= @tasks_desc.keys[1] 
+                td= "#{@tasks_desc.values[1]}回"
+              tr
+                td= "3位"
+                td= @tasks_desc.keys[2] 
+                td= "#{@tasks_desc.values[2]}回"
+  .card.card-body
+    h4 今月の練習記録・1年間の練習記録
+    ul#myTab.nav.nav-tabs.nav-fill role="tablist" 
+      li.nav-item
+        a#monthly-tab.nav-link.active aria-controls="monthly" aria-selected="true" data-toggle="tab" href="#monthly" role="tab"  今月の練習記録
+      li.nav-item
+        a#yearly-tab.nav-link aria-controls="yearly" aria-selected="false" data-toggle="tab" href="#yearly" role="tab"  1年間の練習記録
+    #myTabContent.tab-content
+      #monthly.tab-pane.fade.show.active aria-labelledby="monthly-tab" role="tabpanel"
+        .card.card-body.my-3
+          h5.m-2.text-center 今月の打球数
+          = graph_of_training_hits_group_by_day_of_month
+        .card.card-body.my-3
+          h5.m-2.text-center 今月の練習時間
+          = graph_of_training_time_group_by_day_of_month
+      #yearly.tab-pane.fade aria-labelledby="yearly-tab" role="tabpanel"
+        .card.card-body.my-3
+          h5.m-2.text-center 1年間の打球数
+          = graph_of_training_hits_group_by_month_of_year
+        .card.card-body.my-3
+          h5.m-2.text-center 1年間の練習時間
+          = graph_of_training_time_group_by_month_of_year
