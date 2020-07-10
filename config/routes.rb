@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/training_record', to: 'training_records#show'
+  get '/training_record/show', to: 'training_records#show'
+  get '/training_record', to: 'training_records#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

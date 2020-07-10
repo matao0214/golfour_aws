@@ -1,5 +1,11 @@
 class TrainingRecordsController < ApplicationController
 
+  def index
+    @training_posts = TrainingPost.all
+    @training_contents = TrainingContent.all
+    rank_tasks
+  end
+  
   def show
     @training_posts = current_user.training_posts
     @training_contents = TrainingContent.where(training_post_id: @training_posts)

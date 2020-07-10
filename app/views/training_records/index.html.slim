@@ -1,0 +1,21 @@
+.card.card-body
+        h2 みんなの悩み
+        table.table.table-hover.text-center
+          thead.thead-light
+              tr
+                th= "順位"
+                th= "課題・悩み"
+                th= "投稿回数"
+          tbody
+              tr
+                td= "1位"
+                td= @tasks_desc.keys[0] 
+                td= "#{@tasks_desc.values[0]}回"
+              tr
+                td= "2位"
+                td= @tasks_desc.keys[1] 
+                td= "#{@tasks_desc.values[1]}回"
+              tr
+                td= "3位"
+                td= @tasks_desc.keys[2] 
+                td= "#{@tasks_desc.values[2]}回"
