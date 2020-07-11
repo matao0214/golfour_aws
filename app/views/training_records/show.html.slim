@@ -1,45 +1,37 @@
 .card.card-body
   h2 #{current_user.nickname}さんの練習記録 
-  .row.my-3
-    .col-sm-6
-      .card.card-body
-        h4 これまでの練習記録
-        table.table.text-center
-            thead.thead-light
-                tr
-                  th.w-30= "練習期間"
-                  th= "練習回数"
-                  th= "練習時間"
-                  th= "打球数"
-            tbody
-                tr
-                  td= "#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}"
-                  td= "#{@training_posts.count}回"
-                  td= "#{@training_contents.sum(:training_time)}時間"
-                  td= "#{@training_contents.sum(:training_hits)}球"
-              
-    .col-sm-6
-     .card.card-body
-        h4 悩み・課題Top3
+  .card.card-body
+    table.table.text-center
+        thead.thead-light
+            tr
+              th.w-30= "練習期間"
+              th= "練習回数"
+              th= "練習時間"
+              th= "打球数"
+        tbody
+            tr
+              td= "#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}"
+              td= "#{@training_posts.count}回"
+              td= "#{@training_contents.sum(:training_time)}時間"
+              td= "#{@training_contents.sum(:training_hits)}球"
+  .card.card-body
+    h4 #{current_user.nickname}さんの悩み・課題
+    .row
+      .col-sm-6
+        = pie_chart @tasks_desc, legend: "bottom", width: "auto", height: "400px", suffix: "回"
+  
+      .col-sm-6
         table.table.table-hover.text-center
           thead.thead-light
               tr
-                th= "順位"
                 th= "課題・悩み"
                 th= "投稿回数"
           tbody
+            -(0..6).each do |n|
               tr
-                td= "1位"
-                td= @tasks_desc.keys[0] 
-                td= "#{@tasks_desc.values[0]}回"
-              tr
-                td= "2位"
-                td= @tasks_desc.keys[1] 
-                td= "#{@tasks_desc.values[1]}回"
-              tr
-                td= "3位"
-                td= @tasks_desc.keys[2] 
-                td= "#{@tasks_desc.values[2]}回"
+                td= @tasks_desc.keys[n] 
+                td= "#{@tasks_desc.values[n]}回"
+
   .card.card-body
     h4 今月の練習記録・1年間の練習記録
     ul#myTab.nav.nav-tabs.nav-fill role="tablist" 

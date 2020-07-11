@@ -12,9 +12,9 @@
       table.table.table-hover
         thead.thead-default
           tr
-            th= User.human_attribute_name(:nickname)
-            th= TrainingPost.human_attribute_name(:training_impression)
-            th= TrainingPost.human_attribute_name(:created_at)
+            th.w-20= User.human_attribute_name(:nickname)
+            th.w-60= TrainingPost.human_attribute_name(:training_impression)
+            th.w-20= TrainingPost.human_attribute_name(:created_at)
         tbody
           - @training_posts.each do |post|
             tr
