@@ -1,18 +1,6 @@
 .card.card-body
   h2 みんなの悩み
   .card.card-body
-    table.table.text-center
-        thead.thead-light
-            tr
-              th.w-30= "集計期間"
-              th= "ユーザー数"
-              th= "投稿回数"
-        tbody
-            tr
-              td= "#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}"
-              td= "#{@user.count}人"
-              td= "#{@training_posts.count}回"
-  .card.card-body
     .row
       .col-sm-6
         = pie_chart @tasks_desc, legend: "bottom", width: "auto", height: "400px", suffix: "回"
@@ -27,3 +15,15 @@
               tr
                 td= @tasks_desc.keys[n] 
                 td= "#{@tasks_desc.values[n]}回"
+  .card.card-body
+    table.table.text-center
+        thead.thead-light
+            tr
+              th.w-30= "集計期間"
+              th= "ユーザー数"
+              th= "投稿数"
+        tbody
+            tr
+              td= "#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}"
+              td= "#{@user.count}人"
+              td= "#{@training_posts.count}回"

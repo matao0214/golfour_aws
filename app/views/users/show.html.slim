@@ -18,9 +18,6 @@
         tr
           th = User.human_attribute_name(:created_at)
           td = l @user.created_at, format: :long
-        tr
-          th = User.human_attribute_name(:updated_at)
-          td = l @user.updated_at, format: :long
 
     ul#myTab.nav.nav-tabs.nav-fill role="tablist" 
       li.nav-item
@@ -32,8 +29,8 @@
         table.table.table-hover
           thead.thead-default
             tr
-              th= TrainingPost.human_attribute_name(:training_impression)
-              th= TrainingPost.human_attribute_name(:created_at)
+              th.w-80= TrainingPost.human_attribute_name(:training_impression)
+              th.w-20= TrainingPost.human_attribute_name(:created_at)
           tbody
             - @training_posts.each do |post|
               tr
@@ -44,15 +41,11 @@
           thead.thead-default
             tr
               th.w-20= User.human_attribute_name(:nickname)
-              th= TrainingPost.human_attribute_name(:training_advance)
-              th= TrainingPost.human_attribute_name(:training_task)
-              th= TrainingPost.human_attribute_name(:training_impression)
-              th= TrainingPost.human_attribute_name(:created_at)
+              th.w-60= TrainingPost.human_attribute_name(:training_impression)
+              th.w-20= TrainingPost.human_attribute_name(:created_at)
           tbody
             - @liked_training_posts.each do |post|
               tr
                 td= link_to post.user.nickname, user_path(post.user_id)
-                td= post.training_advance
-                td= post.training_task
                 td= link_to post.training_impression, post
                 td= l post.created_at, format: :short
