@@ -18,6 +18,6 @@
         tbody
           - @training_posts.each do |post|
             tr
-              td= link_to post.user.nickname, user_path(post.user_id)
-              td= link_to post.training_impression, post
-              td= l post.created_at, format: :short
+              td.w-20.position-relative= link_to post.user.nickname, user_path(post.user_id), class: "stretched-link"
+              td.w-60.position-relative= link_to post.training_impression, post, class: "stretched-link"
+              td.w-20= l post.created_at, format: :short
