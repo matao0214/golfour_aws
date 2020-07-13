@@ -1,13 +1,11 @@
 .card.card-body
   h2#inline-block みんなの投稿
-  .dropdown
-    button#dropdownMenu1.btn.btn-primary.dropdown-toggle.mt-3 aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
-      | キーワードで検索
-    .dropdown-menu aria-labelledby="dropdownMenu1" 
-      = search_form_for @q do |f|
-        .form_group
-          = f.search_field :training_impression_cont, class: 'form-control my-3 dropdown-item', placeholder: '感想'
-          = f.submit class: 'btn btn-outline-primary ml-3'
+  = search_form_for @q do |f|
+    .form-row
+      .col-sm-3
+        = f.search_field :training_impression_cont, class: 'form-control', placeholder: '感想'
+      .col-sm-2
+        = f.submit class: 'btn btn-outline-primary'
     .mt-3
       table.table.table-hover
         thead.thead-default

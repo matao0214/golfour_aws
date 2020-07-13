@@ -27,10 +27,11 @@
               th= TrainingPost.human_attribute_name(:updated_at)
               td= l @training_post.updated_at, format: :long
       .col-sm-4
-        .show_map id='show_map'
-        .show_address.text-center
-          | 練習した場所：
-          = @training_post.spot.address
+        .card.card-body
+          .show_map id='show_map'
+          .show_address.text-center.mt-3
+            | 練習場所：
+            = @training_post.spot.address
    
     - if current_user.already_liked?(@training_post)
       = link_to training_post_like_path(@training_post), method: :delete

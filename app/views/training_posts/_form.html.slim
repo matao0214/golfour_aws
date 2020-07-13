@@ -9,18 +9,18 @@ ul#error_explanation
       .form-row
         = f.fields_for :training_content do |s|
           .col-sm-6
-            = s.label :training_time, '練習時間', class: ''
+            = s.label :training_time, '練習時間'
             span.badge.badge-primary 必須
             .form-row
               .col-sm-8.mb-1
-                = s.text_field :training_time, class: 'form-control text-right'
+                = s.text_field :training_time, class: 'form-control text-right', placeholder: '半角数字'
               .col-sm-4.pt-2 時間
           .col-sm-6
-            = s.label :training_hits, '練習で打った球数', class: ''
+            = s.label :training_hits, '練習で打った球数'
             span.badge.badge-primary 必須
             .form-row
               .col-sm-8.mb-1
-                = s.text_field :training_hits, class: 'form-control text-right'
+                = s.text_field :training_hits, class: 'form-control text-right', placeholder: '半角数字'
               .col-sm-4.pt-2 球
       .form-group.mt-3
         | 悩み・課題
@@ -54,7 +54,7 @@ ul#error_explanation
         = f.text_area :training_impression, rows: 2,  class: 'form-control', id: 'training_post_training_impression'
     .col-sm-6
       = f.fields_for :spot do |s|
-        = s.label :address, '練習した場所', class: 'spot_title'
+        = s.label :address, '練習場所', class: 'spot_title'
         span.badge.badge-primary 必須
         .form-row
           .col-sm-8
