@@ -28,8 +28,8 @@ html
           li.nav-item= link_to '新規登録', new_user_path, class: 'nav-link' 
           li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'  
           li.nav-item= link_to 'ゲストユーザーでログイン', guest_login_path, method: :post, class: 'nav-link' 
-    .jumbotoron.jumbotoron-fluid     
-      .container
+    .jumbotoron.jumbotoron-fluid
+      .container.pb-5
         - if flash.notice.present?
           .alert.alert-success.text-center= flash.notice
         = yield
