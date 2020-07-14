@@ -42,7 +42,7 @@
     = @training_post.likes.count
 
     br
-    - unless @training_post.likes.count == 0
+    - if @training_post.likes.exists?
       h4.my-2 いいねしたユーザー
     - @training_post.liked_users.each do |user|
       .liked_user
