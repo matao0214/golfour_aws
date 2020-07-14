@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_011503) do
+ActiveRecord::Schema.define(version: 2020_07_08_113555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,12 +44,17 @@ ActiveRecord::Schema.define(version: 2020_06_29_011503) do
   end
 
   create_table "training_posts", force: :cascade do |t|
-    t.text "training_advance", null: false
-    t.text "training_task", null: false
     t.text "training_impression"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "task_ball_dont_hits_club"
+    t.string "task_slice"
+    t.string "task_hook"
+    t.string "task_ball_dont_fly_far"
+    t.string "task_flight_distance_dont_change"
+    t.string "task_get_duffed"
+    t.string "task_other"
     t.index ["user_id"], name: "index_training_posts_on_user_id"
   end
 

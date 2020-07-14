@@ -1,0 +1,55 @@
+.card.card-body
+  h2 #{current_user.nickname}さんの練習記録 
+  .card.card-body
+    table.table.text-center
+        thead.thead-light
+            tr
+              th.w-30= "練習期間"
+              th= "練習回数"
+              th= "練習時間"
+              th= "打球数"
+        tbody
+            tr
+              td= "#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}"
+              td= "#{@training_posts.count}回"
+              td= "#{@training_contents.sum(:training_time)}時間"
+              td= "#{@training_contents.sum(:training_hits)}球"
+  .card.card-body
+    h4 #{current_user.nickname}さんの悩み・課題
+    .row
+      .col-sm-6
+        = pie_chart_of_tasks(@tasks_desc)
+      .col-sm-6
+        table.table.table-hover.text-center
+          thead.thead-light
+              tr
+                th= "課題・悩み"
+                th= "投稿回数"
+          tbody
+            -(0..6).each do |n|
+              tr
+                td= @tasks_desc.keys[n] 
+                td= "#{@tasks_desc.values[n]}回"
+
+  .card.card-body
+    h4 今月の練習記録・1年間の練習記録
+    ul#myTab.nav.nav-tabs.nav-fill role="tablist" 
+      li.nav-item
+        a#monthly-tab.nav-link.active aria-controls="monthly" aria-selected="true" data-toggle="tab" href="#monthly" role="tab"  今月の練習記録
+      li.nav-item
+        a#yearly-tab.nav-link aria-controls="yearly" aria-selected="false" data-toggle="tab" href="#yearly" role="tab"  1年間の練習記録
+    #myTabContent.tab-content
+      #monthly.tab-pane.fade.show.active aria-labelledby="monthly-tab" role="tabpanel"
+        .card.card-body.my-3
+          h5.m-2.text-center 今月の打球数
+          = graph_of_training_hits_group_by_day_of_month(@training_contents)
+        .card.card-body.my-3
+          h5.m-2.text-center 今月の練習時間
+          = graph_of_training_time_group_by_day_of_month(@training_contents)
+      #yearly.tab-pane.fade aria-labelledby="yearly-tab" role="tabpanel"
+        .card.card-body.my-3
+          h5.m-2.text-center 1年間の打球数
+          = graph_of_training_hits_group_by_month_of_year(@training_contents)
+        .card.card-body.my-3
+          h5.m-2.text-center 1年間の練習時間
+          = graph_of_training_time_group_by_month_of_year(@training_contents)

@@ -3,69 +3,48 @@
     h2#inline-block ユーザー情報
     - if current_user.own?(@user)
       = link_to '編集', edit_user_path, class: 'btn btn-primary ml-3 mb-3'
-
-    table.table.table-hover
-      tbody
-        tr
-          th = User.human_attribute_name(:nickname)
-          td = @user.nickname
-        tr
-          th = User.human_attribute_name(:golf_reki)
-          td = @user.golf_reki
-        tr
-          th = User.human_attribute_name(:goal)
-          td = @user.goal
-        tr
-          th = User.human_attribute_name(:created_at)
-          td = l @user.created_at, format: :long
-        tr
-          th = User.human_attribute_name(:updated_at)
-          td = l @user.updated_at, format: :long
-
-    ul#myTab.nav.nav-tabs.nav-fill role="tablist" 
-      li.nav-item
-        a#user_post-tab.nav-link.active aria-controls="user_post" aria-selected="true" data-toggle="tab" href="#user_post" role="tab"  過去の投稿
-      li.nav-item
-        a#liked_post-tab.nav-link aria-controls="liked_post" aria-selected="false" data-toggle="tab" href="#liked_post" role="tab"  いいねした投稿
-      li.nav-item
-        a#training_time-tab.nav-link aria-controls="training_time" aria-selected="false" data-toggle="tab" href="#training_time" role="tab"  練習時間
-      li.nav-item
-        a#training_hits-tab.nav-link aria-controls="training_hits" aria-selected="false" data-toggle="tab" href="#training_hits" role="tab"  練習で打った球数
-    #myTabContent.tab-content
-      #user_post.tab-pane.fade.show.active aria-labelledby="user_post-tab" role="tabpanel"  
-        table.table.table-hover
-          thead.thead-default
-            tr
-              th= TrainingPost.human_attribute_name(:training_advance)
-              th= TrainingPost.human_attribute_name(:training_task)
-              th= TrainingPost.human_attribute_name(:training_impression)
-              th= TrainingPost.human_attribute_name(:created_at)
-          tbody
-            - @training_posts.each do |post|
+      table.table.table-hover
+        tbody
+          tr
+            th = User.human_attribute_name(:nickname)
+            td = @user.nickname
+          tr
+            th = User.human_attribute_name(:golf_reki)
+            td = @user.golf_reki
+          tr
+            th = User.human_attribute_name(:goal)
+            td = @user.goal
+          tr
+            th = User.human_attribute_name(:created_at)
+            td = l @user.created_at, format: :long
+    .card.card-body
+      ul#myTab.nav.nav-tabs.nav-fill role="tablist" 
+        li.nav-item
+          a#user_post-tab.nav-link.active aria-controls="user_post" aria-selected="true" data-toggle="tab" href="#user_post" role="tab"  過去の投稿
+        li.nav-item
+          a#liked_post-tab.nav-link aria-controls="liked_post" aria-selected="false" data-toggle="tab" href="#liked_post" role="tab"  いいねした投稿
+      #myTabContent.tab-content
+        #user_post.tab-pane.fade.show.active aria-labelledby="user_post-tab" role="tabpanel"  
+          table.table.table-hover
+            thead.thead-default
               tr
-                td= post.training_advance
-                td= post.training_task
-                td= link_to post.training_impression, post
-                td= l post.created_at, format: :short
-      #liked_post.tab-pane.fade aria-labelledby="liked_post-tab" role="tabpanel"
-        table.table.table-hover
-          thead.thead-default
-            tr
-              th.w-20= User.human_attribute_name(:nickname)
-              th= TrainingPost.human_attribute_name(:training_advance)
-              th= TrainingPost.human_attribute_name(:training_task)
-              th= TrainingPost.human_attribute_name(:training_impression)
-              th= TrainingPost.human_attribute_name(:created_at)
-          tbody
-            - @liked_training_posts.each do |post|
+                th.w-80= TrainingPost.human_attribute_name(:training_impression)
+                th.w-20= TrainingPost.human_attribute_name(:created_at)
+            tbody
+              - @training_posts.each do |post|
+                tr
+                  td.position-relative= link_to post.training_impression, post, class: "stretched-link"
+                  td= l post.created_at, format: :short
+        #liked_post.tab-pane.fade aria-labelledby="liked_post-tab" role="tabpanel"
+          table.table.table-hover
+            thead.thead-default
               tr
-                td= link_to post.user.nickname, user_path(post.user_id)
-                td= post.training_advance
-                td= post.training_task
-                td= link_to post.training_impression, post
-                td= l post.created_at, format: :short
-                
-      #training_time.tab-pane.fade aria-labelledby="training_time-tab" role="tabpanel"  
-        = column_chart @training_contents.group_by_day(:created_at).sum(:training_time), label: "練習時間", messages: {empty: "新規投稿してみよう！"}, xtitle: "", ytitle: "時間"
-      #training_hits.tab-pane.fade aria-labelledby="training_hits-tab" role="tabpanel"  
-        = column_chart @training_contents.group_by_day(:created_at).sum(:training_hits), label: "球数", messages: {empty: "新規投稿してみよう！"}
+                th.w-20= User.human_attribute_name(:nickname)
+                th.w-60= TrainingPost.human_attribute_name(:training_impression)
+                th.w-20= TrainingPost.human_attribute_name(:created_at)
+            tbody
+              - @liked_training_posts.each do |post|
+                tr
+                  td.position-relative= link_to post.user.nickname, user_path(post.user_id), class: "stretched-link"
+                  td.position-relative= link_to post.training_impression, post, class: "stretched-link"
+                  td= l post.created_at, format: :short

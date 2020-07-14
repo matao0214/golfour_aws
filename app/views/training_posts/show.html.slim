@@ -12,12 +12,6 @@
               th= User.human_attribute_name(:nickname)
               td= @training_post.user.nickname
             tr
-              th= TrainingPost.human_attribute_name(:training_advance)
-              td= @training_post.training_advance
-            tr
-              th= TrainingPost.human_attribute_name(:training_task)
-              td= @training_post.training_task
-            tr
               th= TrainingPost.human_attribute_name(:training_impression)
               td= @training_post.training_impression
             tr
@@ -33,11 +27,12 @@
               th= TrainingPost.human_attribute_name(:updated_at)
               td= l @training_post.updated_at, format: :long
       .col-sm-4
-        .show_map id='show_map'
-        .show_address.text-center
-          | 練習した場所：
-          = @training_post.spot.address
-          
+        .card.card-body
+          .show_map id='show_map'
+          .show_address.text-center.mt-3
+            | 練習場所：
+            = @training_post.spot.address
+   
     - if current_user.already_liked?(@training_post)
       = link_to training_post_like_path(@training_post), method: :delete
         = icon('fas', 'heart', class: 'fa-2x')
@@ -47,7 +42,8 @@
     = @training_post.likes.count
 
     br
-    - if @training_post.liked_users
-      | いいねしたユーザー
+    - if @training_post.likes.exists?
+      h4.my-2 いいねしたユーザー
     - @training_post.liked_users.each do |user|
-      li.li_s_none= link_to "#{user.nickname}", user_path(user.id)
+      .liked_user
+        li.li_s_none= link_to "#{user.nickname}", user_path(user.id)

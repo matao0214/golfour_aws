@@ -18,16 +18,18 @@ html
           = icon('fas', 'golf-ball', class: 'ml-1')
       ul.navbar-nav.ml-auto
         - if current_user
+          li.nav-item= link_to '練習記録を投稿', new_training_post_path, class: 'nav-link'
           li.nav-item= link_to current_user.nickname, user_path(current_user), class: 'nav-link'
-          li.nav-item= link_to '新規投稿', new_training_post_path, class: 'nav-link'
-          li.nav-item= link_to '投稿一覧', root_url, class: 'nav-link'
+          li.nav-item= link_to '練習記録', training_record_show_path, class: 'nav-link'
+          li.nav-item= link_to 'みんなの投稿', root_url, class: 'nav-link'
+          li.nav-item= link_to 'みんなの悩み', training_record_path, class: 'nav-link'
           li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
         - else
           li.nav-item= link_to '新規登録', new_user_path, class: 'nav-link' 
           li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'  
           li.nav-item= link_to 'ゲストユーザーでログイン', guest_login_path, method: :post, class: 'nav-link' 
-    .jumbotoron.jumbotoron-fluid     
-      .container
+    .jumbotoron.jumbotoron-fluid
+      .container.pb-5
         - if flash.notice.present?
           .alert.alert-success.text-center= flash.notice
         = yield

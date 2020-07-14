@@ -5,7 +5,7 @@ class TrainingPost < ApplicationRecord
   has_one :spot, dependent: :destroy
   has_one :training_content, dependent: :destroy
   accepts_nested_attributes_for :spot, :training_content
-
+  
   scope :recent, -> { order(created_at: :desc) }
 
   def self.ransackable_attributes(auth_object = nil)
@@ -16,7 +16,5 @@ class TrainingPost < ApplicationRecord
     []
   end
   
-  validates :training_advance, presence: true, length: { maximum: 150 }
-  validates :training_task, presence: true, length: { maximum: 150 }
   validates :training_impression, length: { maximum: 150 }
 end

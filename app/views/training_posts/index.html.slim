@@ -1,25 +1,21 @@
 .card.card-body
   h2#inline-block みんなの投稿
-  .dropdown
-    button#dropdownMenu1.btn.btn-primary.dropdown-toggle.mt-3 aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
-      | キーワードで検索
-    .dropdown-menu aria-labelledby="dropdownMenu1" 
-      = search_form_for @q do |f|
-        .form_group
-          = f.search_field :training_advance_cont, class: 'form-control my-3 dropdown-item', placeholder: '上達したこと'
-          = f.search_field :training_task_cont, class: 'form-control my-3 dropdown-item', placeholder: '課題・悩み'
-          = f.search_field :training_impression_cont, class: 'form-control my-3 dropdown-item', placeholder: '感想'
-          = f.submit class: 'btn btn-outline-primary ml-3'
+  = search_form_for @q do |f|
+    .form-row
+      .col-sm-3
+        = f.search_field :training_impression_cont, class: 'form-control', placeholder: '感想'
+      .col-sm-2
+        = f.submit class: 'btn btn-outline-primary'
     .mt-3
       table.table.table-hover
         thead.thead-default
           tr
-            th= User.human_attribute_name(:nickname)
-            th= TrainingPost.human_attribute_name(:training_impression)
-            th= TrainingPost.human_attribute_name(:created_at)
+            th.w-20= User.human_attribute_name(:nickname)
+            th.w-60= TrainingPost.human_attribute_name(:training_impression)
+            th.w-20= TrainingPost.human_attribute_name(:created_at)
         tbody
           - @training_posts.each do |post|
             tr
-              td= link_to post.user.nickname, user_path(post.user_id)
-              td= link_to post.training_impression, post
-              td= l post.created_at, format: :short
+              td.w-20.position-relative= link_to post.user.nickname, user_path(post.user_id), class: "stretched-link"
+              td.w-60.position-relative= link_to post.training_impression, post, class: "stretched-link"
+              td.w-20= l post.created_at, format: :short

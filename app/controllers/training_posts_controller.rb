@@ -50,7 +50,7 @@ class TrainingPostsController < ApplicationController
 private
 
   def training_post_params
-    params.require(:training_post).permit(:training_advance, :training_task, :training_impression, spot_attributes: [:address], training_content_attributes: [:training_time, :training_hits])
+    params.require(:training_post).permit(:training_impression,:task_ball_dont_hits_club,:task_slice, :task_hook, :task_ball_dont_fly_far, :task_flight_distance_dont_change, :task_get_duffed, :task_other, spot_attributes: [:address], training_content_attributes: [:training_time, :training_hits])
   end
 
   def set_training_post

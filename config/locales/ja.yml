@@ -13,11 +13,9 @@ ja:
       training_post:
         id: ID
         training_place: 練習した場所
-        training_advance: 上達したこと
-        training_task: 見つかった課題
         training_impression: 感想
-        created_at: 投稿日時
-        updated_at: 更新日時
+        created_at: 投稿日
+        updated_at: 更新日
 
       user:
         nickname: ユーザー名
@@ -26,8 +24,8 @@ ja:
         password_confirmation: パスワード(確認)
         golf_reki: ゴルフ歴
         goal: 目標
-        created_at: 登録日時
-        updated_at: 更新日時
+        created_at: 登録日
+        updated_at: 更新日
       
       spot:
         address: 練習場所

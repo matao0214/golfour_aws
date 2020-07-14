@@ -6,37 +6,55 @@ ul#error_explanation
 = form_with model: training_post, local: true, multipart: true do |f|
   .row
     .col-sm-6
-      .form-group
-        = f.label :training_advance
-        span.badge.badge-primary 必須
-        = f.text_area :training_advance, rows: 2, class: 'form-control', id: 'training_post_training_advance'
-      .form-group
-        = f.label :training_task
-        span.badge.badge-primary 必須
-        = f.text_area :training_task, rows: 2, class: 'form-control', id: 'training_post_training_task'
+      .form-row
+        = f.fields_for :training_content do |s|
+          .col-sm-6
+            = s.label :training_time, '練習時間'
+            span.badge.badge-primary 必須
+            .form-row
+              .col-sm-8.mb-1
+                = s.text_field :training_time, class: 'form-control text-right', placeholder: '半角数字'
+              .col-sm-4.pt-2 時間
+          .col-sm-6
+            = s.label :training_hits, '練習で打った球数'
+            span.badge.badge-primary 必須
+            .form-row
+              .col-sm-8.mb-1
+                = s.text_field :training_hits, class: 'form-control text-right', placeholder: '半角数字'
+              .col-sm-4.pt-2 球
+      .form-group.mt-3
+        | 悩み・課題
+        span.badge.badge-secondary 任意
+        .card.p-2
+         
+          .form-check
+            = f.check_box :task_ball_dont_hits_club, {class:'form-check-input', id:'training_task_1'}, "true", nil
+            = f.label :task_ball_dont_hits_club, '球が上手く当たらない', class:'form-check-label', for:'training_task_1'
+          .form-check
+            = f.check_box :task_slice, {class:'form-check-input', id:'training_task_2'}, "true", nil
+            = f.label :task_slice, 'スライスする（打球が右に曲がる）', class:'form-check-label', for:'training_task_2'
+          .form-check
+            = f.check_box :task_hook, {class:'form-check-input', id:'training_task_3'}, "true", nil
+            = f.label :task_hook, 'フックする（打球が左に曲がる）', class:'form-check-label', for:'training_task_3'
+          .form-check
+            = f.check_box :task_ball_dont_fly_far, {class:'form-check-input', id:'training_task_4'}, "true", nil
+            = f.label :task_ball_dont_fly_far, '飛距離が出ない', class:'form-check-label', for:'training_task_4'
+          .form-check
+            = f.check_box :task_flight_distance_dont_change, {class:'form-check-input', id:'training_task_5'}, "true", nil
+            = f.label :task_flight_distance_dont_change, 'クラブの番手を変えても飛距離が変わらない', class:'form-check-label', for:'training_task_5'
+          .form-check
+            = f.check_box :task_get_duffed, {class:'form-check-input', id:'training_task_6'}, "true", nil
+            = f.label :task_get_duffed, 'ダフってしまう（ボールの下を打ってしまう）', class:'form-check-label', for:'training_task_6'
+          .form-check
+            = f.check_box :task_other, {class:'form-check-input', id:'training_task_a'}, "true", nil
+            = f.label :task_other, 'その他', class:'form-check-label', for:'training_task_a'
       .form-group
         = f.label :training_impression
         span.badge.badge-secondary 任意
         = f.text_area :training_impression, rows: 2,  class: 'form-control', id: 'training_post_training_impression'
-      .form-row
-        = f.fields_for :training_content do |s|
-          .col-sm-6
-            = s.label :training_time, '練習時間', class: ''
-            span.badge.badge-primary 必須
-            .form-row
-              .col-sm-8.mb-1
-                = s.text_field :training_time, class: 'form-control text-right'
-              .col-sm-4.pt-2 時間
-          .col-sm-6
-            = s.label :training_hits, '練習で打った球数', class: ''
-            span.badge.badge-primary 必須
-            .form-row
-              .col-sm-8.mb-1
-                = s.text_field :training_hits, class: 'form-control text-right'
-              .col-sm-4.pt-2 球
     .col-sm-6
       = f.fields_for :spot do |s|
-        = s.label :address, '練習した場所', class: 'spot_title'
+        = s.label :address, '練習場所', class: 'spot_title'
         span.badge.badge-primary 必須
         .form-row
           .col-sm-8
