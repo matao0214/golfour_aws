@@ -1,5 +1,4 @@
 class TrainingRecordsController < ApplicationController
-
   def index
     @training_posts = TrainingPost.all
     @training_contents = TrainingContent.all
@@ -12,6 +11,8 @@ class TrainingRecordsController < ApplicationController
     @training_contents = TrainingContent.where(training_post_id: @training_posts)
     rank_tasks(@training_posts)
   end
+
+  private
 
   def rank_tasks(training_posts)
     all_task = {
