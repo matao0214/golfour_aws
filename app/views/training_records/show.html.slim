@@ -18,8 +18,7 @@
     h4 #{current_user.nickname}さんの悩み・課題
     .row
       .col-sm-6
-        = pie_chart @tasks_desc, legend: "bottom", width: "auto", height: "400px", suffix: "回"
-  
+        = pie_chart_of_tasks(@tasks_desc)
       .col-sm-6
         table.table.table-hover.text-center
           thead.thead-light
@@ -43,14 +42,14 @@
       #monthly.tab-pane.fade.show.active aria-labelledby="monthly-tab" role="tabpanel"
         .card.card-body.my-3
           h5.m-2.text-center 今月の打球数
-          = graph_of_training_hits_group_by_day_of_month
+          = graph_of_training_hits_group_by_day_of_month(@training_contents)
         .card.card-body.my-3
           h5.m-2.text-center 今月の練習時間
-          = graph_of_training_time_group_by_day_of_month
+          = graph_of_training_time_group_by_day_of_month(@training_contents)
       #yearly.tab-pane.fade aria-labelledby="yearly-tab" role="tabpanel"
         .card.card-body.my-3
           h5.m-2.text-center 1年間の打球数
-          = graph_of_training_hits_group_by_month_of_year
+          = graph_of_training_hits_group_by_month_of_year(@training_contents)
         .card.card-body.my-3
           h5.m-2.text-center 1年間の練習時間
-          = graph_of_training_time_group_by_month_of_year
+          = graph_of_training_time_group_by_month_of_year(@training_contents)

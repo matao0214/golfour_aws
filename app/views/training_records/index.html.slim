@@ -3,7 +3,7 @@
   .card.card-body
     .row
       .col-sm-6
-        = pie_chart @tasks_desc, legend: "bottom", width: "auto", height: "400px", suffix: "回"
+        = pie_chart_of_tasks(@tasks_desc)
       .col-sm-6
         table.table.table-hover.text-center
           thead.thead-light
