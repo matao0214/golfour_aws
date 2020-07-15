@@ -4,17 +4,15 @@
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum; this matches the default thread size of Active Record.
 #
-workers ENV.fetch("WEB_CONCURRENCY") { 2 }
-threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
+workers Integer(ENV['WEB_CONCURRENCY'] || 2)
+threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
 threads threads_count, threads_count
 
 preload_app!
-# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-# Specifies the `environment` that Puma will run in.
-#
+
 rackup      DefaultRackup
-port        ENV.fetch("PORT") { 3000 }
-environment ENV.fetch("RACK_ENV") { "development" }
+port        ENV['PORT']     || 3000
+environment ENV['RACK_ENV'] || 'development'
 
 on_worker_boot do
   # Worker specific setup for Rails 4.1+
