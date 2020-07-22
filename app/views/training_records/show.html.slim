@@ -1,3 +1,6 @@
+- unless @training_posts.exists?
+  .card.card-body.py-5.my-5.text-center
+    h2 練習記録を投稿してみよう！
 .card.card-body
   h2 #{current_user.nickname}さんの練習記録 
   .card.card-body
@@ -10,7 +13,10 @@
               th= "打球数"
         tbody
             tr
-              td= "#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}"
+              - if @training_posts.exists?
+                td= "#{@training_posts.first.created_at.strftime('%Y/%m/%d')} ~ #{@training_posts.last.created_at.strftime('%Y/%m/%d')}"
+              - else
+                td= "練習記録なし"
               td= "#{@training_posts.count}回"
               td= "#{@training_contents.sum(:training_time)}時間"
               td= "#{@training_contents.sum(:training_hits)}球"

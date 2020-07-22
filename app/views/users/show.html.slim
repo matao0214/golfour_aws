@@ -33,7 +33,7 @@
             tbody
               - @training_posts.each do |post|
                 tr
-                  td.position-relative= link_to post.training_impression, post, class: "stretched-link"
+                  td.position-relative.post_show_impression= link_to post.training_impression, post, class: "stretched-link"
                   td= l post.created_at, format: :short
         #liked_post.tab-pane.fade aria-labelledby="liked_post-tab" role="tabpanel"
           table.table.table-hover
@@ -46,5 +46,5 @@
               - @liked_training_posts.each do |post|
                 tr
                   td.position-relative= link_to post.user.nickname, user_path(post.user_id), class: "stretched-link"
-                  td.position-relative= link_to post.training_impression, post, class: "stretched-link"
+                  td.position-relative.post_show_impression= link_to post.training_impression, post, class: "stretched-link"
                   td= l post.created_at, format: :short

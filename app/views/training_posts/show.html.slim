@@ -13,7 +13,7 @@
               td= @training_post.user.nickname
             tr
               th= TrainingPost.human_attribute_name(:training_impression)
-              td= @training_post.training_impression
+              td.post_show_impression= @training_post.training_impression
             tr
               th= TrainingContent.human_attribute_name(:training_time)
               td= "#{@training_post.training_content.training_time}時間"

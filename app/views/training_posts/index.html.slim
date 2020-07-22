@@ -17,5 +17,5 @@
           - @training_posts.each do |post|
             tr
               td.w-20.position-relative= link_to post.user.nickname, user_path(post.user_id), class: "stretched-link"
-              td.w-60.position-relative= link_to post.training_impression, post, class: "stretched-link"
+              td.w-60.position-relative= link_to post.training_impression, post, class: "stretched-link", style: "white-space: pre-wrap"
               td.w-20= l post.created_at, format: :short
