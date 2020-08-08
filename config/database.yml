@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: golfour_production
-  username: golfour
-  password: <%= ENV['GOLFOUR_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOSTNAME'] %>

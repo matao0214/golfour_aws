@@ -41,7 +41,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
-  gem "dotenv-rails"
+ # gem "dotenv-rails"
+ #最後に移動
   gem 'rspec-rails', '~> 4.0.1'
   gem 'factory_bot_rails'
 end
@@ -63,6 +64,10 @@ group :test do
   gem 'webdrivers'
 end
 
+group :production, :staging do
+  gem 'unicorn'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -78,3 +83,4 @@ gem "geocoder"
 gem "gon"
 gem 'groupdate'
 gem "chartkick"
+gem "dotenv-rails"
