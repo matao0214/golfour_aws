@@ -4,9 +4,9 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_DATABASE: docker_development
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ENV['MYSQL_ROOT_PASSWORD']
       MYSQL_USER: root
-      MYSQL_PASSWORD: password
+      MYSQL_PASSWORD: ENV['MYSQL_PASSWORD']
     volumes:
       - ./mysql/mysql_data:/var/lib/mysql
     ports:
