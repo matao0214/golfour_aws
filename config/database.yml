@@ -7,7 +7,7 @@ development:
   <<: *default
   database: golfour_development
   username: root
-  password: <%= ENV['MYSQL_PASSWORD'] %>
+  password: password
   database: docker_development
   host: db
 
