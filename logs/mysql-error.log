@@ -1,0 +1,40 @@
+2020-08-15T20:08:05.341610+09:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.21) starting as process 1
+2020-08-15T20:08:05.371907+09:00 1 [ERROR] [MY-011011] [Server] Failed to find valid data directory.
+2020-08-15T20:08:05.372448+09:00 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2020-08-15T20:08:05.372831+09:00 0 [ERROR] [MY-010119] [Server] Aborting
+2020-08-15T20:08:05.374151+09:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.21)  MySQL Community Server - GPL.
+2020-08-15T20:12:02.444661+09:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.21) starting as process 1
+2020-08-15T20:12:02.480352+09:00 1 [ERROR] [MY-011011] [Server] Failed to find valid data directory.
+2020-08-15T20:12:02.481361+09:00 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2020-08-15T20:12:02.481946+09:00 0 [ERROR] [MY-010119] [Server] Aborting
+2020-08-15T20:12:02.483491+09:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.21)  MySQL Community Server - GPL.
+2020-08-15T20:17:05.043816+09:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.21) starting as process 1
+2020-08-15T20:17:05.078774+09:00 1 [ERROR] [MY-011011] [Server] Failed to find valid data directory.
+2020-08-15T20:17:05.079324+09:00 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2020-08-15T20:17:05.079703+09:00 0 [ERROR] [MY-010119] [Server] Aborting
+2020-08-15T20:17:05.081198+09:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.21)  MySQL Community Server - GPL.
+2020-08-15T20:18:45.758121+09:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.21) starting as process 1
+2020-08-15T20:18:45.788805+09:00 1 [ERROR] [MY-011011] [Server] Failed to find valid data directory.
+2020-08-15T20:18:45.789401+09:00 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2020-08-15T20:18:45.789883+09:00 0 [ERROR] [MY-010119] [Server] Aborting
+2020-08-15T20:18:45.791369+09:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.21)  MySQL Community Server - GPL.
+2020-08-15T20:23:40.049746+09:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.21) starting as process 1
+2020-08-15T20:23:40.076188+09:00 1 [ERROR] [MY-011011] [Server] Failed to find valid data directory.
+2020-08-15T20:23:40.076700+09:00 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2020-08-15T20:23:40.077188+09:00 0 [ERROR] [MY-010119] [Server] Aborting
+2020-08-15T20:23:40.078477+09:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.21)  MySQL Community Server - GPL.
+2020-08-15T20:35:24.821932+09:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.21) starting as process 1
+2020-08-15T20:35:24.849609+09:00 1 [ERROR] [MY-011011] [Server] Failed to find valid data directory.
+2020-08-15T20:35:24.850312+09:00 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2020-08-15T20:35:24.850838+09:00 0 [ERROR] [MY-010119] [Server] Aborting
+2020-08-15T20:35:24.852533+09:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.21)  MySQL Community Server - GPL.
+2020-08-15T20:46:10.482201+09:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.21) starting as process 1
+2020-08-15T20:46:10.510178+09:00 1 [ERROR] [MY-011011] [Server] Failed to find valid data directory.
+2020-08-15T20:46:10.510890+09:00 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2020-08-15T20:46:10.511546+09:00 0 [ERROR] [MY-010119] [Server] Aborting
+2020-08-15T20:46:10.513055+09:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.21)  MySQL Community Server - GPL.
+2020-08-15T20:53:58.554484+09:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.21) starting as process 1
+2020-08-15T20:53:58.581888+09:00 1 [ERROR] [MY-011011] [Server] Failed to find valid data directory.
+2020-08-15T20:53:58.582713+09:00 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2020-08-15T20:53:58.583348+09:00 0 [ERROR] [MY-010119] [Server] Aborting
+2020-08-15T20:53:58.585031+09:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.21)  MySQL Community Server - GPL.
