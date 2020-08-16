@@ -8,7 +8,6 @@ development:
   database: golfour_development
   username: root
   password: password
-  database: docker_development
   host: db
 
 test:

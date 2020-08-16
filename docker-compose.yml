@@ -3,14 +3,13 @@ services:
   db:
     image: mysql:8.0
     environment:
-      MYSQL_DATABASE: docker_development
+      MYSQL_DATABASE: golfour_development
       MYSQL_ROOT_PASSWORD: password
       MYSQL_USER: root
       MYSQL_PASSWORD: password
       TZ: Asia/Tokyo
     volumes:
       - ./mysql/mysql_data:/var/lib/mysql
-      - ./logs:/var/log/mysql
       - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
       - "4306:3306"
