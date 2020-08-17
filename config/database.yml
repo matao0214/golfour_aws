@@ -6,13 +6,18 @@ default: &default
 development:
   <<: *default
   database: golfour_development
-  username: root
+  username: yuki
   password: password
   host: db
+  socket: /tmp/mysql.sock
 
 test:
   <<: *default
   database: golfour_test
+  host: db
+  username: yuki
+  password: password
+  socket: /tmp/mysql.sock
 
 production:
   <<: *default
