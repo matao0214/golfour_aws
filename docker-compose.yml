@@ -15,6 +15,21 @@ services:
       - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
       - "4306:3306"
+  db-test:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: golfour_test
+      MYSQL_USER: yuki
+      MYSQL_PASSWORD: password
+      TZ: Asia/Tokyo
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    tmpfs:
+      - /var/lib/mysql
+      - /var/log/mysql
+      
   web:
     build:
       context: .
