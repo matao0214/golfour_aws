@@ -27,4 +27,3 @@
 /config/master.key
 .env
 /mysql
-/mtsql/mysql_data
