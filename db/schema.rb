@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_07_08_113555) do
 
-  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "training_post_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_113555) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "spots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "spots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "address", limit: 50, null: false
     t.float "latitude", null: false
     t.float "longitude", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_113555) do
     t.index ["training_post_id"], name: "index_spots_on_training_post_id"
   end
 
-  create_table "training_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "training_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "training_time", null: false
     t.integer "training_hits", null: false
     t.integer "training_post_id", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_113555) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "training_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "training_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "training_impression", limit: 255
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_113555) do
     t.index ["user_id"], name: "index_training_posts_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nickname", limit: 10, null: false
     t.string "email", null: false
     t.string "password_digest", null: false
