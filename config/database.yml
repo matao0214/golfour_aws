@@ -14,9 +14,9 @@ development:
 test:
   <<: *default
   database: golfour_test
-  host: db-test
   username: yuki
   password: password
+  host: db-test
   socket: /tmp/mysql.sock
 
 production:
