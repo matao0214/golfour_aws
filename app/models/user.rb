@@ -9,14 +9,14 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :training_post
 
-  GUEST_EMAIL = 'guest@example.com'
+  GUEST_EMAIL = 'guest@example.com'.freeze
 
   def own?(user)
     self == user
   end
 
   def own_post?(post)
-   id == post.user_id
+    id == post.user_id
   end
 
   def already_liked?(post)

@@ -1,6 +1,6 @@
 class TrainingPostsController < ApplicationController
-  before_action :set_training_post, only: [:show, :edit, :update, :destroy]
-  before_action :correct_training_post, only: [:edit, :update]
+  before_action :set_training_post, only: %i[show edit update destroy]
+  before_action :correct_training_post, only: %i[edit update]
 
   def index
     @q = TrainingPost.all.ransack(params[:q])
@@ -23,20 +23,19 @@ class TrainingPostsController < ApplicationController
 
   def create
     @training_post = current_user.training_posts.new(training_post_params)
-    
+
     if @training_post.save
-      redirect_to root_url, notice: "投稿しました。" 
+      redirect_to root_url, notice: '投稿しました。'
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @training_post.update(training_post_params)
-      redirect_to training_post_url, notice: "投稿を編集しました。"
+      redirect_to training_post_url, notice: '投稿を編集しました。'
     else
       render :edit
     end
@@ -44,13 +43,13 @@ class TrainingPostsController < ApplicationController
 
   def destroy
     @training_post.destroy
-    redirect_to root_url, notice: "投稿を削除しました。"
+    redirect_to root_url, notice: '投稿を削除しました。'
   end
 
-private
+  private
 
   def training_post_params
-    params.require(:training_post).permit(:training_impression,:task_ball_dont_hits_club,:task_slice, :task_hook, :task_ball_dont_fly_far, :task_flight_distance_dont_change, :task_get_duffed, :task_other, spot_attributes: [:address], training_content_attributes: [:training_time, :training_hits])
+    params.require(:training_post).permit(:training_impression, :task_ball_dont_hits_club, :task_slice, :task_hook, :task_ball_dont_fly_far, :task_flight_distance_dont_change, :task_get_duffed, :task_other, spot_attributes: [:address], training_content_attributes: %i[training_time training_hits])
   end
 
   def set_training_post
