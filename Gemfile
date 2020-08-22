@@ -45,6 +45,8 @@ group :development, :test do
  #最後に移動
   gem 'rspec-rails', '~> 4.0.1'
   gem 'factory_bot_rails'
+  gem 'rubocop'
+  gem 'rubocop-rails'
 end
 
 group :development do
