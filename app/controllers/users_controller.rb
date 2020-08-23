@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :login_required, only: [:new, :create]
-  before_action :set_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  skip_before_action :login_required, only: %i[new create]
+  before_action :set_user, only: %i[show edit update]
+  before_action :correct_user, only: %i[edit update]
 
   def show
     @training_posts = @user.training_posts.recent
@@ -13,8 +13,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @user = User.new(user_params)
@@ -36,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   private
-    
+
   def user_params
     params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :golf_reki, :goal)
   end
