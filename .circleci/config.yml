@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   ruby: circleci/ruby@1.1.0
-  # node: circleci/node@2
 
 jobs:
   build:
@@ -10,37 +9,40 @@ jobs:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
       - checkout
+      # - run:
+      #     name: setup bundler
+      #     command:
+      #       sudo gem update --system
+      #       sudo gem uninstall bundler
+      #       sudo rm /usr/local/bin/bundle
+      #       sudo rm /usr/local/bin/bundler
+      #       sudo gem install bundler
       - ruby/install-deps
-      # Store bundle cache
-      # - node/install-packages:
-      #     pkg-manager: yarn
-      #     cache-key: "yarn.lock"
+
   test:
     parallelism: 3
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
-          DB_HOST: db-test    #127.0.0.1
+          DB_HOST: 127.0.0.1
           RAILS_ENV: test
           BUNDLER_VERSION: 2.1.4
       - image: circleci/mysql:8.0
-        command: [--default-authentication-plugin=mysql_native_password]
+        command: --default-authentication-plugin=mysql_native_password
         environment:
           MYSQL_USER: yuki
           MYSQL_DB: golfour_test
-    # environment:
-    #   BUNDLE_JOBS: "3"
-    #   BUNDLE_RETRY: "3"
-    #   PGHOST: 127.0.0.1
-    #   PGUSER: circleci-demo-ruby
-    #   PGPASSWORD: ""
-    #   RAILS_ENV: test
     steps:
       - checkout
+      # - run:
+      #     name: setup bundler
+      #     command:
+      #       sudo gem update --system
+      #       sudo gem uninstall bundler
+      #       sudo rm /usr/local/bin/bundle
+      #       sudo rm /usr/local/bin/bundler
+      #       sudo gem install bundler
       - ruby/install-deps
-      # - node/install-packages:
-      #     pkg-manager: yarn
-      #     cache-key: "yarn.lock"
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
