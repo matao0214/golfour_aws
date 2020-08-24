@@ -16,7 +16,7 @@ test:
   database: golfour_test
   username: yuki
   password: password
-  host: db-test
+  host: localhost    # circleci導入前は'db-test'を記述
   socket: /tmp/mysql.sock
 
 production:
