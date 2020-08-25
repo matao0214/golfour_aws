@@ -24,7 +24,7 @@ jobs:
           # RspecのSystemspecを利用するために追加
           # ./spec/support/capybara.rbで使用
           SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
-      -image: selenium/standalone-chrome-debug
+      - image: selenium/standalone-chrome-debug
         logging:
           driver: none      
       - image: circleci/mysql:8.0
