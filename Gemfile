@@ -44,8 +44,8 @@ group :development, :test do
   # gem "dotenv-rails"
   # 最後に移動
   gem 'factory_bot_rails'
+  gem 'rspec_junit_formatter'
   gem 'rspec-rails', '~> 4.0.1'
-  gem "rspec_junit_formatter"
   gem 'rubocop'
   gem 'rubocop-rails'
 end
