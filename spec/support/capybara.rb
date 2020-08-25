@@ -2,7 +2,6 @@
 # この設定の中にエラーの原因があるが詳細不明。
 # 参考文献: https://qiita.com/suketa/items/d783ac61c2a3e4c16ad4
 
-
 # require 'capybara/rspec'
 
 # RSpec.configure do |config|
