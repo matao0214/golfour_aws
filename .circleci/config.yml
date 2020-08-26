@@ -1,0 +1,55 @@
+version: 2.1
+
+orbs:
+  ruby: circleci/ruby@1.1.0
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          BUNDLER_VERSION: 2.1.4
+    steps:
+      - checkout
+      - ruby/install-deps
+
+  test:
+    parallelism: 3
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          DB_HOST: 127.0.0.1
+          RAILS_ENV: test
+          BUNDLER_VERSION: 2.1.4
+          # RspecのSystemspecを利用するために追加
+          # ./spec/support/capybara.rbで使用
+      #     SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
+      # - image: selenium/standalone-chrome-debug
+      #     logging:
+      #       driver: none
+      - image: circleci/mysql:8.0
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          MYSQL_ROOT_HOST: '%'
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: mv config/database.yml.ci config/database.yml 
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+      # Run rspec in parallel
+      - ruby/rspec-test
+      - ruby/rubocop-check
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
