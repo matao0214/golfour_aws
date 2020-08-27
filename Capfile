@@ -5,7 +5,7 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets' 
 require 'capistrano/rails/migrations' 
 # taskを記述したファイルを読み込むよう設定。場所と拡張子を指定。
-Dir.glob('lib/capistrano/tasks/*.rb').each { |r| import r }
+Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
 
 # 初期設定
 # require "capistrano/setup"
