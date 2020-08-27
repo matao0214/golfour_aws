@@ -52,6 +52,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop'
   gem 'rubocop-rails'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
