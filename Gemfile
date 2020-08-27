@@ -43,6 +43,10 @@ group :development, :test do
   gem 'pry-rails'
   # gem "dotenv-rails"
   # 最後に移動
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'factory_bot_rails'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails', '~> 4.0.1'
