@@ -41,19 +41,17 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'
-  # gem "dotenv-rails"
-  # 最後に移動
+  gem 'bcrypt_pbkdf'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'ed25519'
   gem 'factory_bot_rails'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop'
   gem 'rubocop-rails'
-  gem 'ed25519'
-  gem 'bcrypt_pbkdf'
 end
 
 group :development do
