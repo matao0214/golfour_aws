@@ -13,6 +13,9 @@ set :branch, 'master'
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/rails/golfour'
 
+# secret_base_keyを読み込ませるため追記
+set :linked_files, %w{config/master.key}
+
 # シンボリックリンクをはるファイル。
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 
