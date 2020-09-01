@@ -39,15 +39,15 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'bcrypt_pbkdf'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'pry-rails'
-  # gem "dotenv-rails"
-  # 最後に移動
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'ed25519'
   gem 'factory_bot_rails'
+  gem 'pry-rails'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop'

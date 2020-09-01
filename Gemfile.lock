@@ -51,6 +51,7 @@ GEM
     autoprefixer-rails (9.8.6.2)
       execjs
     bcrypt (3.1.15)
+    bcrypt_pbkdf (1.0.1)
     bindex (0.8.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
@@ -98,6 +99,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    ed25519 (1.2.4)
     erubi (1.9.0)
     execjs (2.7.0)
     factory_bot (6.1.0)
@@ -328,6 +330,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bcrypt_pbkdf
   bootsnap (>= 1.1.0)
   bootstrap
   byebug
@@ -339,6 +342,7 @@ DEPENDENCIES
   chartkick
   coffee-rails (~> 4.2)
   dotenv-rails
+  ed25519
   factory_bot_rails
   font-awesome-sass (~> 5.13.0)
   geocoder
