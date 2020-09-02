@@ -40,10 +40,10 @@ jobs:
       - ruby/rubocop-check
 
   deploy:
-    # docker:
-    #   - image: circleci/ruby:2.5.1-node-browsers
-    #     environment:
-    #       BUNDLER_VERSION: 2.1.4
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          BUNDLER_VERSION: 2.1.4
     steps:
       - add_ssh_keys:
         fingerprints:
