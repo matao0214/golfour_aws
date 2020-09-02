@@ -39,14 +39,14 @@ jobs:
       - ruby/rspec-test
       - ruby/rubocop-check
 
-  deploy:
-    docker:
-      - image: circleci/ruby:2.5.1-node-browsers
-        environment:
-          BUNDLER_VERSION: 2.1.4
-    steps:
-      - checkout
-      - fingerprints: "fc:d4:16:f1:8b:39:25:8a:c1:95:58:fa:cd:53:65:23"
+  # deploy:
+  #   docker:
+  #     - image: circleci/ruby:2.5.1-node-browsers
+  #       environment:
+  #         BUNDLER_VERSION: 2.1.4
+  #   steps:
+  #     - checkout
+  #     - fingerprints: "fc:d4:16:f1:8b:39:25:8a:c1:95:58:fa:cd:53:65:23"
 
 workflows:
   version: 2
@@ -56,7 +56,7 @@ workflows:
       - test:
         requires:
           - build
-      - deploy:
-        requires:
-          - test
+      # - deploy:
+      #   requires:
+      #     - test
    
