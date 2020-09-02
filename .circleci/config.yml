@@ -38,25 +38,26 @@ jobs:
       # Run rspec in parallel
       - ruby/rspec-test
       - ruby/rubocop-check
-      
-  add_ssh_keys:
+
+  deploy:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
           BUNDLER_VERSION: 2.1.4
     steps:
-      - checkout
-      - fingerprints: "fc:d4:16:f1:8b:39:25:8a:c1:95:58:fa:cd:53:65:23"
+      add_ssh_keys:
+        - checkout
+        - fingerprints: "fc:d4:16:f1:8b:39:25:8a:c1:95:58:fa:cd:53:65:23"
 
 workflows:
   version: 2
-  build-test-and-deploy:
+  from-build-to-deploy:
     jobs:
       - build
       - test:
-          requires:
-            - build
-      - add_ssh_keys:
-          requires:
-            - test
+        requires:
+          - build
+      - deploy:
+        requires:
+          - test
    
