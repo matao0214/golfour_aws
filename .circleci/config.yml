@@ -50,7 +50,7 @@ jobs:
 
 workflows:
   version: 2
-  from-build-to-deploy:
+  build-test-and-deploy:
     jobs:
       - build
       - test:
