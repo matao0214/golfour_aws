@@ -48,7 +48,8 @@ jobs:
       - checkout
       - ruby/install-deps
       - add_ssh_keys:
-        fingerprints: "fc:d4:16:f1:8b:39:25:8a:c1:95:58:fa:cd:53:65:23"
+        fingerprints: 
+          - "fc:d4:16:f1:8b:39:25:8a:c1:95:58:fa:cd:53:65:23"
 
 workflows:
   version: 2
