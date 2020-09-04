@@ -5,9 +5,9 @@ server '54.150.171.208', user: 'yuki', roles: %w[app db web]
 # set :ssh_options, keys: '~/.ssh/go_key_rsa'
 
 # CircleCIのGUIで設定した環境変数を使ってSSH接続
-set :ssh_options, {  
-  keys: ["#{ENV.fetch('PRODUCTION_SSH_KEY')}"],  
-  forward_agent: true,  
-  auth_methods: %w[publickey],  
-  port: 33333,  
-}  
+set :ssh_options, {
+  keys: [ENV.fetch('PRODUCTION_SSH_KEY').to_s],
+  forward_agent: true,
+  auth_methods: %w[publickey],
+  port: 33_333
+}
