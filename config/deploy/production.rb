@@ -8,6 +8,5 @@ server '54.150.171.208', user: 'yuki', roles: %w[app db web]
 set :ssh_options, {
   keys: [ENV.fetch('PRODUCTION_SSH_KEY').to_s],
   forward_agent: true,
-  auth_methods: %w[publickey],
-  port: 33_333
+  auth_methods: %w[publickey]
 }
