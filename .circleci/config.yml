@@ -48,7 +48,7 @@ jobs:
       - checkout
       - ruby/install-deps
       - add_ssh_keys:
-          fingerprints: "fc:d4:16:f1:8b:39:25:8a:c1:95:58:fa:cd:53:65:23"
+          fingerprints: "3c:d3:3a:d8:be:e5:90:c6:61:42:53:64:a4:04:18:73"
       - deploy:
           name: Capistrano deploy
           command: bundle exec cap production deploy
