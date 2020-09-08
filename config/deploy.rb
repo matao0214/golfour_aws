@@ -14,6 +14,7 @@ set :branch, 'master'
 set :deploy_to, '/var/www/rails/golfour'
 
 # secret_base_keyを読み込ませるため追記
+# master.keyをCircleCIのGUI上の環境変数で設定したのでコメントアウト
 set :linked_files, %w[config/master.key]
 
 # シンボリックリンクをはるファイル。
