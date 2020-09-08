@@ -1,8 +1,7 @@
 # EC2サーバーのIP、EC2サーバーにログインするユーザー名、サーバーのロールを記述
-# 自動デプロイ前はuserが''yukiを記述。
 # CircleCIではSSHKEYの登録時にOPENSSH形式は使用不可で、pemファイルを使用しないといけない。
-# user'yuki'ではOPENSSHでキーペアを作成しているため、キーペアをpemファイルで作成しているuser'ec2-user'を使用。
-server '54.150.171.208', user: 'ec2-user', roles: %w[app db web]
+# そのため、これまでgo_key_rsaというOPENSSH形式のファイルを使用していたが、golfourというpem形式のファイルを新たに作成。
+server '54.150.171.208', user: 'yuki', roles: %w[app db web]
 
 # 自動デプロイ前はこちらを使用
 # set :ssh_options, keys: '~/.ssh/go_key_rsa'
