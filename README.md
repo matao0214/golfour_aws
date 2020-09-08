@@ -7,15 +7,15 @@ https://golfour.herokuapp.com
 # 言語・使用技術
 ・Ruby 2.5.1  
 ・Ruby on Rails 5.2.4  
-・HTML（Slim）  
-・CSS(Sass)  
-・Bootstrap4  
+・HTML(Slim,CSS(Sass),Bootstrap4  
 ・JavaScript (jQuery)  
-・PostgreSQL 12.2  
+・MySQL 
 ・GoogleMapsAPI  
-・Heroku  
-・Git  
-・GitHub  
+・Git,GitHub 
+・AWS(VPC/EC2/ALB/RDS/Route53)
+・Docker, docker-compose
+・Capistrano
+・CircleCI/CD 
 # 機能一覧
 ・新規投稿機能  
 ・一覧表示機能  

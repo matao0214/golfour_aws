@@ -21,7 +21,7 @@ html
           li.nav-item= link_to '練習記録を投稿', new_training_post_path, class: 'nav-link'
           li.nav-item= link_to current_user.nickname, user_path(current_user), class: 'nav-link'
           li.nav-item= link_to '練習記録', training_record_show_path, class: 'nav-link'
-          li.nav-item= link_to 'みんなの投稿', root_url, class: 'nav-link'
+          li.nav-item= link_to '投稿一覧', root_url, class: 'nav-link'
           li.nav-item= link_to 'みんなの悩み', training_record_path, class: 'nav-link'
           li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
         - else
