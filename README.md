@@ -9,7 +9,7 @@ https://golfour.herokuapp.com
 ・Ruby on Rails 5.2.4  
 ・HTML(Slim,CSS(Sass),Bootstrap4  
 ・JavaScript (jQuery)  
-・MySQL 
+・MySQL  
 ・GoogleMapsAPI  
 ・Git,GitHub  
 ・AWS(VPC/EC2/ALB/RDS/Route53)  
