@@ -11,7 +11,7 @@ https://golfour.herokuapp.com
 ・JavaScript (jQuery)  
 ・MySQL 
 ・GoogleMapsAPI  
-・Git,GitHub 
+・Git,GitHub  
 ・AWS(VPC/EC2/ALB/RDS/Route53)  
 ・Docker, docker-compose  
 ・Capistrano  
