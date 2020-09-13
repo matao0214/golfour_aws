@@ -15,6 +15,10 @@ class User < ApplicationRecord
     self == user
   end
 
+  def guest_user?(user)
+    user.email == 'guest@example.com'
+  end
+
   def own_post?(post)
     id == post.user_id
   end
