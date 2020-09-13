@@ -12,10 +12,10 @@ https://www.golfour-app.xyz
 ・MySQL 
 ・GoogleMapsAPI  
 ・Git,GitHub 
-・AWS(VPC/EC2/ALB/RDS/Route53) 
-・Docker, docker-compose 
-・Capistrano 
-・CircleCI/CD 
+・AWS(VPC/EC2/ALB/RDS/Route53)  
+・Docker, docker-compose  
+・Capistrano  
+・CircleCI/CD  
 # 機能一覧
 ・新規投稿機能  
 ・一覧表示機能  
