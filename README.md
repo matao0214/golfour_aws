@@ -9,13 +9,13 @@ https://www.golfour-app.xyz
 ・Ruby on Rails 5.2.4  
 ・HTML(Slim,CSS(Sass),Bootstrap4  
 ・JavaScript (jQuery)  
-・MySQL 
+・MySQL  
 ・GoogleMapsAPI  
-・Git,GitHub 
+・Git,GitHub  
 ・AWS(VPC/EC2/ALB/RDS/Route53)  
 ・Docker, docker-compose  
 ・Capistrano  
-・CircleCI/CD  
+・CircleCI/CD   
 # 機能一覧
 ・新規投稿機能  
 ・一覧表示機能  
@@ -26,6 +26,6 @@ https://www.golfour-app.xyz
 ・検索機能  
 ・いいね機能  
 ・位置情報投稿機能（GoogleMapAPIの利用）  
-・投稿データからグラフ作成機能  
+・投稿データからグラフ作成機能 
 # インフラ構成図
 ![aws-infra](https://user-images.githubusercontent.com/61932860/92693800-13fe8700-f381-11ea-95ad-2f2d7843f270.png) 
