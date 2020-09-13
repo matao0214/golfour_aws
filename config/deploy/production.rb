@@ -1,6 +1,5 @@
 # EC2サーバーのIP、EC2サーバーにログインするユーザー名、サーバーのロールを記述
-# 自動デプロイ前は以下を記述。コメントアウトすることで自動デプロイ可能になった。
-# server '54.150.171.208', user: 'yuki', roles: %w[app db web]
+server '54.150.171.208', user: 'yuki', roles: %w[app db web]
 
 # 自動デプロイ前はこちらを使用
 # set :ssh_options, keys: '~/.ssh/go_key_rsa'

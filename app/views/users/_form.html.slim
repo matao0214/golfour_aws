@@ -28,4 +28,7 @@
     = f.label :goal, '目標'
     span.badge.badge-secondary 任意
     = f.text_area :goal, class: 'form-control'
+- unless current_user.guest_user?(@user)
   = f.submit '登録する', class: 'btn btn-primary'
+else
+  p ※ゲストユーザー情報は編集できません

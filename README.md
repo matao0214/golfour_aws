@@ -3,7 +3,7 @@
 学生時代の経験からゴルフ初心者が持つ課題を解決するためのツールとして作成しました。  
 メインの機能は練習記録を投稿して共有する機能と練習記録を管理してグラフ化する機能です。  
 # URL
-https://golfour.herokuapp.com
+https://www.golfour-app.xyz
 # 言語・使用技術
 ・Ruby 2.5.1  
 ・Ruby on Rails 5.2.4  
