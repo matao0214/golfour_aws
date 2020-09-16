@@ -25,7 +25,7 @@ describe '練習記録投稿機能', type: :system do
   describe '投稿詳細表示機能' do
     context 'ユーザーAがログインしているとき' do
       let(:login_user) { user_a }
-      before do 
+      before do
         visit user_path(user_a)
       end
       it_behaves_like 'ユーザーAが投稿した練習記録が表示される'
@@ -45,12 +45,12 @@ describe '練習記録投稿機能', type: :system do
       fill_in 'training_post_training_impression', with: '新規投稿のテストを書く'
       click_button '投稿する'
     end
-    
+
     context '投稿画面で必須項目を入力したとき' do
       let(:training_time) { 2 }
       let(:training_hits) { 150 }
-      let(:address) { '筑波ジャンボゴルフセンター'}
-      
+      let(:address) { '筑波ジャンボゴルフセンター' }
+
       it '正常に投稿される' do
         expect(page).to have_selector '.alert-success', text: '投稿しました。'
       end
@@ -60,7 +60,7 @@ describe '練習記録投稿機能', type: :system do
       let(:training_time) { '' }
       let(:training_hits) { '' }
       let(:address) { '' }
-      
+
       it 'エラーが表示される' do
         within '#error_explanation' do
           expect(page).to have_content '練習場所を入力してください'
