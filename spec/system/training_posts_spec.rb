@@ -11,12 +11,24 @@ describe '練習記録投稿機能', type: :system do
     click_button 'ログインする'
   end
 
+  shared_examples_for 'ユーザーAが投稿した練習記録が表示される' do
+    it { expect(page).to have_content 'RSpecテスト' }
+  end
+
   describe '一覧表示機能' do
     context 'ユーザーAがログインしているとき' do
       let(:login_user) { user_a }
-      it 'ユーザーAが作成した練習記録が表示される' do
-        expect(page).to have_content 'RSpecテスト'
+      it_behaves_like 'ユーザーAが投稿した練習記録が表示される'
+    end
+  end
+
+  describe '投稿詳細表示機能' do
+    context 'ユーザーAがログインしているとき' do
+      let(:login_user) { user_a }
+      before do 
+        visit user_path(user_a)
       end
+      it_behaves_like 'ユーザーAが投稿した練習記録が表示される'
     end
   end
 end
