@@ -4,6 +4,6 @@ FactoryBot.define do
     email { 'RSpec@example.com' }
     password { 'password' }
     golf_reki { '未経験' }
-    goal { 'テストを通す' }
+    goal { 'テストをパスする' }
   end
 end
