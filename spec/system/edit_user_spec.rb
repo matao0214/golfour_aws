@@ -27,7 +27,7 @@ describe 'ユーザー機能', type: :system do
       fill_in 'メールアドレス', with: edit_email
       click_button '登録する'
     end
-    
+
     context '有効なユーザー情報を編集したとき' do
       let(:edit_nickname) { 'edit_user' }
       let(:edit_email) { 'edit_email' }
@@ -46,5 +46,5 @@ describe 'ユーザー機能', type: :system do
         end
       end
     end
-  end      
+  end
 end
