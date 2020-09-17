@@ -49,7 +49,7 @@ describe '練習記録投稿機能', type: :system do
     context '投稿画面で必須項目を入力したとき' do
       let(:training_time) { 2 }
       let(:training_hits) { 150 }
-      let!(:address) { '筑波ジャンボゴルフセンター' }
+      let(:address) { '筑波ジャンボゴルフセンター' }
 
       it '正常に投稿される' do
         expect(page).to have_selector '.alert-success', text: '投稿しました。'
@@ -59,7 +59,7 @@ describe '練習記録投稿機能', type: :system do
     context '投稿画面で必須項目を入力しなかったとき' do
       let(:training_time) { '' }
       let(:training_hits) { '' }
-      let!(:address) { '' }
+      let(:address) { '' }
 
       it 'エラーが表示される' do
         within '#error_explanation' do
