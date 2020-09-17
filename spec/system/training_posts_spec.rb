@@ -39,6 +39,16 @@ describe '練習記録投稿機能', type: :system do
       # 入力必須項目
       fill_in '練習時間', with: training_time
       fill_in '練習で打った球数', with: training_hits
+      # circleci上でネットワーク経由で緯度と経度が取得できないため、stubを使いデータを予め設置
+      Geocoder.configure(lookup: :test)
+      Geocoder::Lookup::Test.add_stub(
+        '筑波ジャンボゴルフセンター', [
+          {
+            'coordinates' => [40.7143528, -74.0059731],
+            'address' => '筑波ジャンボゴルフセンター'
+          }
+        ]
+      )
       fill_in 'address', with: address
       # 入力任意項目
       check '球が上手く当たらない'
