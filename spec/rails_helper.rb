@@ -31,6 +31,9 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium, using: :headless_chrome, screen_size: [1920, 1080]
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   Capybara.javascript_driver = :poltergeist
