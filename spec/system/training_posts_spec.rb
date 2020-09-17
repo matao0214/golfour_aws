@@ -32,7 +32,7 @@ describe '練習記録投稿機能', type: :system do
     end
   end
 
-  describe '新規投稿機能', js: true do
+  describe '新規投稿機能' do
     let(:login_user) { user_a }
     before do
       visit new_training_post_path
@@ -51,7 +51,7 @@ describe '練習記録投稿機能', type: :system do
       let(:training_hits) { 150 }
       let(:address) { '筑波ジャンボゴルフセンター' }
 
-      it '正常に投稿される' do
+      it '正常に投稿される', js: true do
         expect(page).to have_selector '.alert-success', text: '投稿しました。'
       end
     end
@@ -61,7 +61,7 @@ describe '練習記録投稿機能', type: :system do
       let(:training_hits) { '' }
       let(:address) { '' }
 
-      it 'エラーが表示される' do
+      it 'エラーが表示される', js: true do
         within '#error_explanation' do
           expect(page).to have_content '練習場所を入力してください'
           expect(page).to have_content '練習時間を入力してください'
