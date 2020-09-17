@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe '練習記録投稿機能', type: :system do
+describe '練習記録投稿機能', type: :system, js: true do
   let(:user_a) { FactoryBot.create(:user, nickname: 'ユーザーA', email: 'a@example.com') }
   let!(:training_post_a) { FactoryBot.create(:training_post, training_impression: 'RSpecテスト', user: user_a) }
 
