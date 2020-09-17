@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe '練習記録投稿機能', type: :system, js: true do
+describe '練習記録投稿機能', type: :system do
   let(:user_a) { FactoryBot.create(:user, nickname: 'ユーザーA', email: 'a@example.com') }
   let!(:training_post_a) { FactoryBot.create(:training_post, training_impression: 'RSpecテスト', user: user_a) }
 
@@ -32,7 +32,7 @@ describe '練習記録投稿機能', type: :system, js: true do
     end
   end
 
-  describe '新規投稿機能' do
+  describe '新規投稿機能', js: true do
     let(:login_user) { user_a }
     before do
       visit new_training_post_path
