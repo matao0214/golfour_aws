@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'ユーザー機能', type: :system do
+describe 'ユーザー作成機能', type: :system do
   let!(:user_a) { FactoryBot.create(:user, email: 'test1@example.com') }
   before do
     visit new_user_path
@@ -9,7 +9,6 @@ describe 'ユーザー機能', type: :system do
     fill_in 'パスワード', with: password
     fill_in 'パスワード(確認)', with: password_digest
     select '未経験', from: 'ゴルフ歴'
-    fill_in '目標', with: 'テストをパスする'
     click_button '登録する'
   end
 
@@ -47,6 +46,18 @@ describe 'ユーザー機能', type: :system do
       it 'エラーが表示される' do
         within '#error_explanation' do
           expect(page).to have_content 'メールアドレスはすでに存在します'
+        end
+      end
+    end
+
+    context '文字数の上限を超えて入力したとき' do
+      let(:nickname) { '12345678901' }
+      let(:email) { 'test2@example.com' }
+      let(:password) { 'password' }
+      let(:password_digest) { 'password_digest' }
+      it 'エラーが表示される' do
+        within '#error_explanation' do
+          expect(page).to have_content 'ユーザー名は10文字以内で入力してください'
         end
       end
     end
