@@ -84,6 +84,3 @@ GolfOurのメイン機能は2つあります。
 
 ## インフラ構成図
 ![aws-infra](https://user-images.githubusercontent.com/61932860/92693800-13fe8700-f381-11ea-95ad-2f2d7843f270.png) 
-
-## 特に力を入れた点
-1. 使い続けたくなる機能
