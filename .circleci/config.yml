@@ -14,7 +14,7 @@ jobs:
       - ruby/install-deps
 
   test:
-    parallelism: 3
+    parallelism: 2
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
         environment:

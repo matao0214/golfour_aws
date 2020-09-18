@@ -1,5 +1,5 @@
 # circleciでSysetemSpec実行するためにコメントアウト。
-# この設定の中にエラーの原因があるが詳細不明。
+# この設定の中にエラーの原因があるが詳細不明。調査中。
 # 参考文献: https://qiita.com/suketa/items/d783ac61c2a3e4c16ad4
 
 # require 'capybara/rspec'
