@@ -24,8 +24,8 @@ https://www.golfour-app.xyz
 居住地：　地方・郊外(練習場・ゴルフ場が豊富で環境が整っている地域)  
 ゴルフ歴：　練習回数0~10回程度でまだコースデビューしていない人
 
-## メイン機能
-GolfOurのメイン機能は2つあります。
+## 主な利用方法
+GolfOurのメインとなる機能は2つあります。
 ### 1. 練習内容を投稿して共有する
 ![training_post](https://user-images.githubusercontent.com/61932860/93555601-6529fe80-f9b1-11ea-8d06-af7bc6815414.png)
 
