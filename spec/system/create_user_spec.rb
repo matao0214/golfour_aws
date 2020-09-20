@@ -50,7 +50,7 @@ describe 'ユーザー作成機能', type: :system do
       end
     end
 
-    context '文字数の上限を超えて入力したとき' do
+    context 'ユーザー名を文字数の上限を超えて入力したとき' do
       let(:nickname) { '12345678901' }
       let(:email) { 'test2@example.com' }
       let(:password) { 'password' }
