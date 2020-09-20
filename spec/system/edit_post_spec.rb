@@ -13,6 +13,7 @@ describe '投稿内容編集機能', type: :system do
     click_on '練習記録を投稿'
     fill_in '練習時間', with: 1
     fill_in '練習で打った球数', with: 100
+    # circleci上ではブラウザ経由で緯度と経度が取得できないため、stubを使いデータを予め設置
     Geocoder.configure(lookup: :test)
     Geocoder::Lookup::Test.add_stub(
       '筑波ジャンボゴルフセンター', [
@@ -55,6 +56,31 @@ describe '投稿内容編集機能', type: :system do
       it '正常に削除される' do
         expect(page).to have_selector '.alert-success', text: '投稿を削除しました。'
         expect(page).to have_no_content '新規投稿のテストを書く'
+      end
+    end
+  end
+
+  describe '投稿内容にいいね' do
+    before do
+      click_on 'add_fav'
+    end
+    context 'いいねしたとき' do
+      it 'いいねしたユーザー名が表示される' do
+        within '.liked_user' do
+          expect(page).to have_content user.nickname
+        end
+      end
+    end
+  end
+
+  describe '投稿内容のいいねを外す' do
+    before do
+      click_on 'add_fav'
+      click_on 'remove_fav'
+    end
+    context 'いいね外したとき' do
+      it 'いいねしたユーザー名が表示されない' do
+        expect(page).to have_no_content 'いいねしたユーザー'
       end
     end
   end  
