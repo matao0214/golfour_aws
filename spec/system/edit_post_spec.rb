@@ -44,7 +44,7 @@ describe '投稿内容編集機能', type: :system do
         expect(page).to have_content '編集出来ました'
       end
     end
-  end  
+  end
 
   describe '投稿内容を削除' do
     before do
@@ -83,5 +83,5 @@ describe '投稿内容編集機能', type: :system do
         expect(page).to have_no_content 'いいねしたユーザー'
       end
     end
-  end  
+  end
 end
