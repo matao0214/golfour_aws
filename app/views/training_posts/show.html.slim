@@ -34,10 +34,10 @@
             = @training_post.spot.address
    
     - if current_user.already_liked?(@training_post)
-      = link_to training_post_like_path(@training_post), method: :delete
+      = link_to training_post_like_path(@training_post), method: :delete, id: 'remove_fav'
         = icon('fas', 'heart', class: 'fa-2x')
     - else
-      = link_to training_post_likes_path(@training_post), method: :post
+      = link_to training_post_likes_path(@training_post), method: :post, id: 'add_fav'
         = icon('far', 'heart', class: 'fa-2x')
     = @training_post.likes.count
 
