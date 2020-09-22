@@ -25,7 +25,7 @@ https://www.golfour-app.xyz
 ゴルフ歴：　 練習回数0~10回程度でまだコースデビューしていない人
 
 ## 主な利用方法
-GolfOurのメイン機能は2つです。  
+GolfOurのメイン機能は以下の2つです。  
 
 ### 1. 練習内容を投稿して共有する
 ![training_post](https://user-images.githubusercontent.com/61932860/93555601-6529fe80-f9b1-11ea-8d06-af7bc6815414.png)
