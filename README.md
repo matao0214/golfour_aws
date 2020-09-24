@@ -1,7 +1,7 @@
 ![golfour](https://user-images.githubusercontent.com/61932860/93550727-fe9fe300-f9a6-11ea-8f6d-8d1aadb53186.png)
 
 ## 概要
-「ゴルフを楽しもう！」  
+「初心者でもゴルフを楽しもう！」  
 GolfOurは練習内容を投稿して共有したり記録できるゴルフ初心者向けサービスです。
 ## URL
 https://www.golfour-app.xyz  
